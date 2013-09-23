@@ -1,0 +1,1453 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glossario 
+[
+<!ELEMENT glossario (entrada)+>
+
+<!ELEMENT entrada (singular,acronimo?,definicao,ver?,especificoDe?,
+                   verTambem?,(exemplo|nota|refLeg)?)>
+<!ATTLIST entrada
+  id ID #REQUIRED
+  classificacao CDATA #IMPLIED>
+
+<!ELEMENT singular (#PCDATA)>
+
+<!ELEMENT acronimo (#PCDATA)>
+
+<!ELEMENT definicao (#PCDATA)>
+
+<!ELEMENT ver EMPTY>
+<!ATTLIST ver
+  refid IDREF #REQUIRED>
+
+<!ELEMENT especificoDe EMPTY>
+<!ATTLIST especificoDe
+  refid IDREF #REQUIRED>
+
+<!ELEMENT verTambem EMPTY>
+<!ATTLIST verTambem
+  refids IDREFS #REQUIRED>
+
+<!ELEMENT exemplo (#PCDATA)>
+
+<!ELEMENT nota (#PCDATA)>
+
+<!ELEMENT refLeg (#PCDATA)>
+
+]>
+<glossario>
+	<entrada id="ab-rogacao">
+		<singular>Ab-rogação</singular>
+		<definicao />
+		<ver refid="revogacao-total-da-norma" />
+	</entrada>
+	<entrada id="acao-direta-de-inconstitucionalidade">
+		<singular>Ação Direta de Inconstitucionalidade</singular>
+		<acronimo>ADI ou ADIn</acronimo>
+		<definicao>Ação que tem por finalidade declarar que uma lei ou parte
+			dela é
+			inconstitucional.
+		</definicao>
+		<especificoDe refid="norma-juridica" />
+	</entrada>
+	<entrada id="acao-declaratoria-de-constitucionalidade">
+		<singular>Ação Declaratória de Constitucionalidade</singular>
+		<acronimo>ADC</acronimo>
+		<definicao>Ação que tem por finalidade confirmar que uma lei ou parte
+			dela é
+			constitucional.
+		</definicao>
+		<especificoDe refid="norma-juridica" />
+	</entrada>
+	<entrada id="acrescimo">
+		<singular>Acréscimo</singular>
+		<definicao>Espécie de modificação que adiciona dispositivos ou
+			expressões à norma
+			jurídica.
+		</definicao>
+		<especificoDe refid="modificacao" />
+	</entrada>
+	<entrada id="acrescimo-de-dispositivo">
+		<singular>Acréscimo de Dispositivo</singular>
+		<definicao>Espécie de modificação que adiciona dispositivos à norma
+			jurídica.</definicao>
+		<especificoDe refid="acrescimo" />
+	</entrada>
+	<entrada id="acrescimo-de-expressao">
+		<singular>Acréscimo de Expressão</singular>
+		<definicao>Espécie de modificação que adiciona expressões à norma
+			jurídica.</definicao>
+		<especificoDe refid="acrescimo" />
+	</entrada>
+	<entrada id="alerta">
+		<singular>Alerta</singular>
+		<definicao>Relacionamento genérico para expressar notas que auxiliem
+			na interpretação e
+			aplicação das normas. Pode ser utilizado para alertar sobre atualização de
+			valores
+			monetários, para mudanças genéricas de expressões ou para destacar uma ressalva
+			de uma
+			revogação.
+		</definicao>
+		<verTambem
+			refids="revogacao-de-norma-integral-com-ressalva revogacao-com-ressalva" />
+	</entrada>
+	<entrada id="alerta--no-documento">
+		<singular>Alerta (no Documento)</singular>
+		<definicao />
+		<ver refid="nota" />
+	</entrada>
+	<entrada id="alteracao">
+		<singular>Alteração</singular>
+		<definicao>Texto de norma jurídica que estabelece disposições gerais
+			ou especiais a diploma
+			legal.
+		</definicao>
+		<especificoDe refid="modificacao" />
+		<verTambem
+			refids="texto-compilado ressalva-de-aplicacao retificacao--com-sentido-de-alteracao" />
+	</entrada>
+	<entrada id="alteracao-expressa">
+		<singular>Alteração Expressa</singular>
+		<definicao>É a alteração diretamente determinada em diploma legal.
+		</definicao>
+		<especificoDe refid="alteracao" />
+	</entrada>
+	<entrada id="alteracao-expressa-de-dispositivo">
+		<singular>Alteração Expressa de Dispositivo</singular>
+		<definicao>É a alteração expressa que dá nova redação a todo um
+			dispositivo.</definicao>
+		<especificoDe refid="alteracao-expressa" />
+	</entrada>
+	<entrada id="alteracao-expressa-de-expressao">
+		<singular>Alteração Expressa de Expressão</singular>
+		<definicao>É a alteração expressa que substitui uma expressão no
+			dispositivo.</definicao>
+		<especificoDe refid="alteracao-expressa" />
+	</entrada>
+	<entrada id="alteracao-tacita">
+		<singular>Alteração Tácita</singular>
+		<definicao>Evento em que a norma anterior é alterada se há
+			incompatibilidade entre ela e os
+			preceitos da nova norma. O SILEX não registra os relacionamentos de alteração
+			tácita.
+		</definicao>
+		<especificoDe refid="alteracao" />
+		<verTambem refids="novo-tratamento-da-materia" />
+	</entrada>
+	<entrada id="anulacao">
+		<singular>Anulação</singular>
+		<definicao>Evento que retira do mundo jurídico atos com defeito de
+			validade (atos
+			inválidos), produzindo efeitos retroativos à data em que o ato foi emitido
+			(efeitos ex
+			tunc). Excepcionalmente, no âmbito das normas infralegais, o termo anulação
+			pode ser
+			utilizado na acepção de revogação.
+		</definicao>
+		<verTambem refids="revogacao ato-invalido" />
+	</entrada>
+	<entrada id="apreciacao-de-veto">
+		<singular>Apreciação de Veto</singular>
+		<definicao>É a manifestação de competência exclusiva do Poder
+			Legislativo sobre veto aposto
+			a Projeto de Lei pelo Chefe do Poder Executivo. No âmbito do SILEX,
+			apenas será
+			considerado o resultado da apreciação que rejeita o veto.
+		</definicao>
+		<verTambem refids="rejeicao-do-veto" />
+	</entrada>
+	<entrada id="aprovacao-de-ato-internacional">
+		<singular>Aprovação de Ato Internacional</singular>
+		<definicao>Ato pelo qual um decreto legislativo aprova o texto de um
+			ato internacional
+			autorizando o Executivo a ratificar o ato no plano internacional.
+		</definicao>
+	</entrada>
+	<entrada id="arguicao-de-descumprimento-de-preceito-fundamental">
+		<singular>Arguição de Descumprimento de Preceito Fundamental</singular>
+		<acronimo>ADPF</acronimo>
+		<definicao>Ação que tem por finalidade evitar ou reparar lesão a
+			preceito fundamental da
+			Constituição, resultante de ato do Poder Público. Entretanto, esse tipo de ação
+			também
+			pode ter natureza equivalente às ADIs, podendo questionar a
+			constitucionalidade de uma
+			norma perante a Constituição Federal, mas tal norma deve ser municipal ou
+			anterior à
+			Constituição vigente (no caso, anterior à de 1988). A ADPF é disciplinada pela
+			Lei
+			Federal 9.882/1999.
+		</definicao>
+		<especificoDe refid="norma-juridica" />
+	</entrada>
+	<entrada id="ato-cancelado">
+		<singular>Ato Cancelado</singular>
+		<definicao />
+		<ver refid="ato-invalido" />
+	</entrada>
+	<entrada id="ato-invalido">
+		<singular>Ato Inválido</singular>
+		<definicao>Na normatização infralegal, atos administrativos praticados
+			em desconformidade
+			com as prescrições jurídicas são passíveis anulação. Excepcionalmente, o
+			termo pode ser
+			utilizado na acepção de revogação.
+		</definicao>
+		<verTambem refids="revogacao anulacao" />
+	</entrada>
+	<entrada id="ato-nulo">
+		<singular>Ato Nulo</singular>
+		<definicao />
+		<ver refid="ato-invalido" />
+	</entrada>
+	<entrada id="caducidade-expressa">
+		<singular>Caducidade Expressa</singular>
+		<definicao>Condição jurídica da norma que, com prazo certo de
+			vigência, perde sua eficácia
+			por falta de prática de determinadas formalidades (Ref. Legislativa:
+			art. 26, § 6º,
+			arts. 31 e 32, Decreto-Lei 227/1967).
+		</definicao>
+		<verTambem refids="declaracao-de-caducidade" />
+	</entrada>
+	<entrada id="caducidade-tacita">
+		<singular>Caducidade Tácita</singular>
+		<definicao>Atos administrativos normativos podem ser considerados
+			caducos por sua não
+			aplicação, desuso, perda de oportunidade ou de sentido, em face da mudança de
+			hábitos,
+			costumes ou mesmo da situação que alguns deles pretendiam regulamentar.
+		</definicao>
+	</entrada>
+	<entrada id="caduco">
+		<singular>Caduco</singular>
+		<definicao />
+		<ver refid="caducidade-expressa" />
+	</entrada>
+	<entrada id="citacao-legislativa">
+		<singular>Citação Legislativa</singular>
+		<definicao />
+		<ver refid="remissao" />
+	</entrada>
+	<entrada id="clausula-de-vigencia">
+		<singular>Cláusula de Vigência</singular>
+		<definicao>Dispositivo de Norma Jurídica que estabelece o início ou o
+			final do período de
+			vigência.
+		</definicao>
+	</entrada>
+	<entrada id="clausula-de-vigencia--interna">
+		<singular>Cláusula de Vigência (Interna)</singular>
+		<definicao>Dispositivo da própria Norma Jurídica que estabelece o
+			início ou o final do
+			período de vigência.
+		</definicao>
+		<especificoDe refid="clausula-de-vigencia" />
+	</entrada>
+	<entrada id="clausula-de-vigencia--externa">
+		<singular>Cláusula de Vigência (Externa)</singular>
+		<definicao>Dispositivo de Norma Jurídica que estabelece o início ou o
+			final do período de
+			vigência de outra Norma Jurídica.
+		</definicao>
+		<especificoDe refid="clausula-de-vigencia" />
+		<exemplo>Artigo 1º da Lei de Introdução às normas do Direito Brasileiro (LINDB, art. 1º).</exemplo>
+	</entrada>
+	<entrada id="compilacao">
+		<singular>Compilação</singular>
+		<definicao>Consiste na integração das alterações ocorridas durante a
+			vigência do diploma
+			legal. Tem por finalidade abreviar e facilitar a consulta em todas as
+			fontes de
+			informação legislativa. Poderá gerar um texto multivigente ou um texto
+			atualizado para
+			uma determinada data.
+		</definicao>
+		<verTambem refids="texto-compilado" />
+	</entrada>
+	<entrada id="consolidacao">
+		<singular>Consolidação</singular>
+		<definicao>Consiste na integração de todas as leis pertinentes a
+			determinada matéria num
+			único diploma legal, revogando-se formalmente as leis incorporadas à
+			consolidação, sem
+			modificação do alcance nem interrupção da força normativa dos dispositivos
+			consolidados.
+			(Parágrafo 1º. do art. 13 da Lei Complementar nº 95 com redação dada pela Lei
+			Complementar nº 107, de 26.4.2001).
+		</definicao>
+		<nota>Está fora do escopo do SILEX.</nota>
+	</entrada>
+	<entrada id="convalidacao">
+		<singular>Convalidação</singular>
+		<definicao>Correção ou ratificação de um ato normativo eivado de
+			vícios, tornando-o válido e
+			perfeito.
+		</definicao>
+	</entrada>
+	<entrada id="conversao">
+		<singular>Conversão</singular>
+		<definicao>Aprovação de medida provisória e sua transformação em lei.
+		</definicao>
+	</entrada>
+	<entrada id="conversao-com-alteracao">
+		<singular>Conversão com Alteração</singular>
+		<definicao>Aprovação de medida provisória com alteração de texto e sua
+			transformação em lei. </definicao>
+		<especificoDe refid="conversao" />
+	</entrada>
+	<entrada id="conversao-sem-alteracao">
+		<singular>Conversão sem Alteração</singular>
+		<definicao>Aprovação de medida provisória sem alteração de texto e sua
+			transformação em lei. </definicao>
+		<especificoDe refid="conversao" />
+	</entrada>
+	<entrada id="conversao-de-decreto-lei-em-medida-provisoria">
+		<singular>Conversão de Decreto-Lei em Medida Provisória</singular>
+		<definicao>Os decretos-leis editados entre 3 de setembro de 1988 e a
+			promulgação da
+			Constituição de 1988 foram convertidos em Medidas Provisórias (Referência
+			Legislativa:
+			CF, 1988, ADCT, art. 25).
+		</definicao>
+	</entrada>
+	<entrada id="correlacao">
+		<singular>Correlação</singular>
+		<definicao>Associação entre entidades cujo tema tem relação entre si.
+			Consideram-se, entre
+			outros casos, as relações entre normas jurídicas, entre jurisprudência e
+			normas
+			jurídicas e entre jurisprudência e doutrina.
+		</definicao>
+	</entrada>
+	<entrada id="decisao-liminar-em-sede-de-adi">
+		<singular>Decisão Liminar em Sede de ADI</singular>
+		<definicao>Decisão judicial de caráter provisório que, entre outras
+			coisas, pode suspender a
+			eficácia de determinada norma.
+		</definicao>
+		<verTambem refids="declaracao-de-inconstitucionalidade suspensao-de-eficacia" />
+	</entrada>
+	<entrada id="declaracao-de-caducidade">
+		<singular>Declaração de Caducidade</singular>
+		<definicao>Ato pelo qual a autoridade competente reconhece a situação
+			de caducidade de
+			determinada norma.
+		</definicao>
+		<verTambem
+			refids="caducidade-expressa declaracao-de-perempcao-de-concessao-ou-permissao" />
+	</entrada>
+	<entrada id="declaracao-de-eficacia-expressa">
+		<singular>Declaração de Eficácia Expressa</singular>
+		<definicao>Dispositivo pelo qual a autoridade competente estabelece
+			eficácia retroativa ou
+			adiada de forma explícita.
+		</definicao>
+	</entrada>
+	<entrada id="declaracao-de-inconstitucionalidade">
+		<singular>Declaração de Inconstitucionalidade</singular>
+		<definicao>Ato pelo qual se declara inconstitucional uma norma
+			jurídica no todo ou em parte,
+			mediante o ajuizamento de uma ação direta de inconstitucionalidade ou ação
+			declaratória
+			de constitucionalidade perante o tribunal constitucional. Pode ocorrer
+			efeito repristinatório, ocasião em que as versões das normas afetadas voltam ao seu estado
+			anterior. (Vide LCP 95/1998, Art. 12, III, c -- veda o aproveitamento
+			do numero do dispositivo declarado inconstitucional).
+		</definicao>
+		<verTambem refids="decisao-liminar-em-sede-de-adi efeito-repristinatorio" />
+	</entrada>
+	<entrada id="declaracao-de-insubsistencia">
+		<singular>Declaração de Insubsistência</singular>
+		<definicao />
+		<ver refid="anulacao" />
+	</entrada>
+	<entrada id="declaracao-de-insubsistencia-de-medida-provisoria">
+		<singular>Declaração de Insubsistência de Medida Provisória</singular>
+		<definicao>Ato pelo qual o Chefe do Poder Legislativo declara
+			insubsistente a Medida
+			Provisória que foi rejeitada ou arquivada pela Casa Legislativa, feita a devida
+			comunicação ao Chefe do Poder Executivo. Após a Resolução CN 1/2002,
+			passou a ser
+			utilizado o termo ``Rejeição de Medida Provisória'' (vide: Resolução CN
+			1/1989)
+		</definicao>
+		<verTambem refids="rejeicao-de-medida-provisoria" />
+	</entrada>
+	<entrada id="declaracao-de-nao-recepcao-pela-constituicao">
+		<singular>Declaração de Não Recepção pela Constituição</singular>
+		<definicao>Ato pelo qual se declara que uma norma jurídica no todo ou
+			em parte não foi
+			recepcionada pela constituição vigente, mediante o ajuizamento de uma arguição de
+			descumprimento de preceito fundamental (ADPF) perante o tribunal
+			constitucional.
+		</definicao>
+	</entrada>
+	<entrada id="declaracao-de-perempcao-de-concessao-ou-permissao">
+		<singular>Declaração de Perempção de Concessão ou Permissão</singular>
+		<definicao>Ato pelo qual se declara a perempção de concessão ou
+			permissão.</definicao>
+		<verTambem
+			refids="declaracao-de-caducidade perempcao-de-concessao-ou-permissao" />
+	</entrada>
+	<entrada id="declaracao-de-prejudicialidade-de-medida-provisoria">
+		<singular>Declaração de Prejudicialidade de Medida Provisória</singular>
+		<definicao>Situação que encerra a vigência da medida provisória por
+			edição de norma que
+			trata sobre a mesma matéria comunicada ao Poder Executivo pelo Poder
+			Legislativo.
+		</definicao>
+	</entrada>
+	<entrada id="decurso-de-prazo">
+		<singular>Decurso de Prazo</singular>
+		<definicao>Evento que encerra um prazo expressamente estabelecido.
+		</definicao>
+	</entrada>
+	<entrada id="derrogacao">
+		<singular>Derrogação</singular>
+		<definicao />
+		<ver refid="revogacao-parcial" />
+	</entrada>
+	<entrada id="derrubada-de-veto">
+		<singular>Derrubada de Veto</singular>
+		<definicao />
+		<ver refid="rejeicao-do-veto" />
+	</entrada>
+	<entrada
+		id="disciplinamento-de-relacoes-juridicas-decorrentes-de-medidas-provisorias-rejeitadas-ou-declaradas-insubsistentes">
+		<singular>Disciplinamento de Relações Jurídicas de MPV 
+            Rejeitada ou Declarada Insubsistente</singular>
+		<definicao>Norma veiculada por Decreto Legislativo que regula as
+			relações jurídicas
+			derivadas de medidas provisórias rejeitadas ou declaradas insubsistentes.
+		</definicao>
+	</entrada>
+	<entrada id="dispositivo-de-norma-juridica">
+		<singular>Dispositivo de Norma Jurídica</singular>
+		<definicao>Unidade de articulação de um texto normativo. Além da
+			unidade básica (artigo),
+			são considerados dispositivos os desdobramentos de artigo (caput,
+			parágrafos, incisos,
+			alíneas e itens) e os agrupadores de artigo (parte, livro, título, capítulo,
+			seção e
+			subseção).
+		</definicao>
+		<especificoDe refid="norma-juridica" />
+	</entrada>
+	<entrada id="dispositivo-de-proposicao-legislativa">
+		<singular>Dispositivo de Proposição Legislativa</singular>
+		<definicao>Unidade de articulação do texto de uma proposição
+			legislativa. Além da unidade
+			básica (artigo), são considerados dispositivos os desdobramentos de artigo
+			(caput,
+			parágrafos, incisos, alíneas e itens) e os agrupadores de artigo (parte, livro,
+			título,
+			capítulo, seção e subseção). Está fora do escopo do SILEX.
+		</definicao>
+		<verTambem refids="proposicao-legislativa" />
+	</entrada>
+	<entrada id="dispositivo-conexo">
+		<singular>Dispositivo Conexo</singular>
+		<definicao />
+		<ver refid="correlacao" />
+	</entrada>
+	<entrada id="documento">
+		<singular>Documento</singular>
+		<definicao>Registro de uma informação independentemente da natureza do
+			suporte que a contém.
+			Inclui norma, acórdão, súmula, proposição legislativa etc.
+		</definicao>
+	</entrada>
+	<entrada id="efeito-repristinatorio">
+		<singular>Efeito Repristinatório</singular>
+		<definicao>A manutenção da vigência de norma ou dispositivo
+			aparentemente revogado por outra
+			norma declarada nula em sede de ADIN, em decorrência do princípio da
+			nulidade do ato
+			inconstitucional.
+		</definicao>
+		<verTambem refids="declaracao-de-inconstitucionalidade" />
+	</entrada>
+	<entrada id="eficacia">
+		<singular>Eficácia</singular>
+		<definicao>Produção dos efeitos jurídicos de um ato administrativo ou
+			norma. Ato eficaz é
+			aquele que está produzindo efeitos.
+		</definicao>
+		<verTambem refids="periodo-de-eficacia vigencia" />
+	</entrada>
+	<entrada id="entrada-em-vigor">
+		<singular>Entrada em Vigor</singular>
+		<definicao />
+		<ver refid="inicio-de-vigencia" />
+	</entrada>
+	<entrada id="excecao-de-aplicacao">
+		<singular>Exceção de Aplicação</singular>
+		<definicao />
+		<ver refid="ressalva-de-aplicacao" />
+	</entrada>
+	<entrada id="exposicao-de-motivos">
+		<singular>Exposição de Motivos</singular>
+		<definicao>Apresentação dos motivos nos quais se baseia um projeto de
+			lei originado fora da
+			Casa Legislativa.
+		</definicao>
+		<verTambem
+			refids="justificativa-da-proposicao-legislativa proposicao-legislativa" />
+	</entrada>
+	<entrada id="fim-de-eficacia-expressa">
+		<singular>Fim de Eficácia Expressa</singular>
+		<definicao>Evento pelo qual a norma jurídica ou parte dela perde
+			eficácia, mediante
+			disposição expressa.
+		</definicao>
+		<verTambem refids="periodo-de-eficacia eficacia" />
+	</entrada>
+	<entrada id="fim-de-vacatio-legis">
+		<singular>Fim de vacatio legis</singular>
+		<definicao>Evento que encerra o vacatio legis de norma jurídica ou
+			parte dela. Esse evento é
+			temporalmente contíguo ao Início de Vigência.
+		</definicao>
+		<verTambem refids="vacatio-legis inicio-de-vacatio-legis inicio-de-vigencia" />
+	</entrada>
+	<entrada id="fim-de-vigencia">
+		<singular>Fim de Vigência</singular>
+		<definicao>Evento pelo qual a norma jurídica ou parte dela perde a
+			vigência.</definicao>
+		<verTambem refids="periodo-de-vigencia" />
+	</entrada>
+	<entrada id="inicio-de-eficacia-expressa">
+		<singular>Início de Eficácia Expressa</singular>
+		<definicao>Evento pelo qual a norma jurídica ou parte dela passa a ter
+			eficácia, mediante
+			disposição expressa.
+		</definicao>
+		<verTambem refids="periodo-de-eficacia eficacia" />
+	</entrada>
+	<entrada id="inicio-de-vacatio-legis">
+		<singular>Início de vacatio legis</singular>
+		<definicao>Evento que inicia o período de vacatio legis.</definicao>
+		<verTambem refids="vacatio-legis fim-de-vacatio-legis" />
+	</entrada>
+	<entrada id="inicio-de-vigencia">
+		<singular>Início de Vigência</singular>
+		<definicao>Evento pelo qual a norma jurídica ou parte dela passa a ter
+			vigência. Esse evento
+			é imediatamente precedido do Fim de vacatio legis, quando houver.
+		</definicao>
+		<verTambem refids="periodo-de-vigencia" />
+	</entrada>
+	<entrada id="interpretacao-conforme-a-constituicao">
+		<singular>Interpretação conforme a Constituição</singular>
+		<definicao>Técnica de controle de constitucionalidade por meio da qual
+			um tribunal
+			constitucional restringe a aplicação de norma ou dispositivo a determinada
+			interpretação.
+		</definicao>
+	</entrada>
+	<entrada id="interpretacao-de-ato-normativo">
+		<singular>Interpretação de ato normativo</singular>
+		<definicao>Ato pelo qual se realiza a interpretação de norma jurídica
+			ou dispositivo de
+			forma a uniformizar a sua aplicação.
+		</definicao>
+	</entrada>
+	<entrada id="jurisprudencia">
+		<singular>Jurisprudência</singular>
+		<definicao>Conjunto das decisões e interpretações das leis feitas
+			pelos tribunais, adaptando
+			as normas às situações de fato.
+		</definicao>
+	</entrada>
+	<entrada id="justificativa-da-proposicao-legislativa">
+		<singular>Justificativa da Proposição Legislativa</singular>
+		<definicao>Apresentação dos motivos nos quais se baseia um projeto de
+			lei originado no Poder
+			Legislativo.
+		</definicao>
+		<verTambem refids="exposicao-de-motivos proposicao-legislativa" />
+	</entrada>
+	<entrada id="legislacao-correlata">
+		<singular>Legislação Correlata</singular>
+		<definicao />
+		<ver refid="correlacao" />
+	</entrada>
+	<entrada id="liminar">
+		<singular>Liminar</singular>
+		<definicao />
+		<ver refid="decisao-liminar-em-sede-de-adi" />
+	</entrada>
+	<entrada id="medida-provisoria-prejudicada">
+		<singular>Medida Provisória Prejudicada</singular>
+		<definicao />
+		<ver refid="declaracao-de-prejudicialidade-de-medida-provisoria" />
+	</entrada>
+	<entrada id="mensagem-de-veto">
+		<singular>Mensagem de Veto</singular>
+		<definicao>Comunicação dos motivos que levaram o chefe do Poder
+			Executivo a vetar, total ou
+			parcialmente, um projeto de lei.
+		</definicao>
+	</entrada>
+	<entrada id="modificacao">
+		<singular>Modificação</singular>
+		<definicao>Considera todas as alterações de texto ou rótulo incluindo
+			os acréscimos, as
+			renumerações e as substituições de expressão.
+		</definicao>
+	</entrada>
+	<entrada id="norma-conexa">
+		<singular>Norma Conexa</singular>
+		<definicao />
+		<ver refid="correlacao" />
+	</entrada>
+	<entrada id="norma-legal">
+		<singular>Norma Legal</singular>
+		<definicao />
+		<ver refid="norma-juridica" />
+	</entrada>
+	<entrada id="norma-juridica">
+		<singular>Norma Jurídica</singular>
+		<definicao>Preceito obrigatório imposto, ou reconhecido como tal, pelo
+			Estado. Para o SILEX,
+			a Norma Jurídica compreende todas as versões da norma no todo ou de
+			seus dispositivos ao
+			longo do tempo, assim como as decisões do tribunal constitucional com
+			efeito vinculante
+			e erga omnes, tais como súmulas vinculantes e decisões em sede de ADI.
+		</definicao>
+		<verTambem refids="versao-de-norma-juridica reedicao" />
+	</entrada>
+	<entrada id="norma-juridica-integral">
+		<singular>Norma Jurídica Integral</singular>
+		<definicao>É a Norma Jurídica considerada como um todo, ou seja, o
+			conjunto de todos os seus
+			elementos (epígrafe, ementa, preâmbulo, articulação, fecho, anexos).
+		</definicao>
+		<especificoDe refid="norma-juridica" />
+	</entrada>
+	<entrada id="nota">
+		<singular>Nota</singular>
+		<definicao>Informação que auxilia ou alerta o entendimento do
+			documento.</definicao>
+	</entrada>
+	<entrada id="nota-de-compilacao">
+		<singular>Nota de Compilação</singular>
+		<definicao>Nota gerada pelo processo de compilação.</definicao>
+		<especificoDe refid="nota" />
+	</entrada>
+	<entrada id="nota-explicativa">
+		<singular>Nota Explicativa</singular>
+		<definicao>Nota de texto livre criada pelo mantenedor da informação
+			jurídica.</definicao>
+		<especificoDe refid="nota" />
+	</entrada>
+	<entrada id="novo-tratamento-da-materia">
+		<singular>Novo Tratamento da Matéria</singular>
+		<definicao>Caso específico de alerta que descreve uma possível
+			ocorrência de alteração
+			tácita.
+		</definicao>
+		<verTambem refids="alteracao-tacita" />
+	</entrada>
+	<entrada id="ordenamento-juridico">
+		<singular>Ordenamento Jurídico</singular>
+		<definicao>Conjunto de normas jurídicas de um país ou unidade da
+			federação tendo como
+			elemento básico sua Carta Política, e, em harmonia com ela, as leis e demais
+			atos
+			normativos.
+		</definicao>
+	</entrada>
+	<entrada id="perempcao-de-concessao-ou-permissao">
+		<singular>Perempção de Concessão ou Permissão</singular>
+		<definicao>Não renovação do prazo de concessão ou permissão pela
+			autoridade competente por
+			falta de conveniência ao interesse nacional, regional ou local, ou ainda
+			pelo não
+			cumprimento por parte do interessado das exigências legais regulamentares
+			aplicáveis ao
+			serviço ou ainda a não observância de suas finalidades educativas ou
+			culturais.
+		</definicao>
+		<verTambem
+			refids="caducidade-expressa declaracao-de-perempcao-de-concessao-ou-permissao" />
+		<refLeg>Decreto-Lei 227/1967</refLeg>
+	</entrada>
+	<entrada id="perda-de-eficacia">
+		<singular>Perda de Eficácia</singular>
+		<definicao />
+		<ver refid="fim-de-eficacia-expressa" />
+	</entrada>
+	<entrada id="periodico-oficial">
+		<singular>Periódico Oficial</singular>
+		<definicao>Publicação destinada ao conhecimento público dos atos
+			editados sob a
+			responsabilidade e às expensas ou por ordem dos órgãos dos Poderes Executivo,
+			Legislativo e Judiciário, como também de entidades dotadas de
+			personalidade jurídica
+			própria, de qualquer forma vinculadas à administração pública nos níveis
+			federal,
+			estadual e municipal.
+		</definicao>
+	</entrada>
+	<entrada id="periodo-de-eficacia">
+		<singular>Período de Eficácia</singular>
+		<definicao>Período durante o qual uma norma produz efeitos. No SILEX,
+			o período de eficácia
+			será registrado nos casos expressos.
+		</definicao>
+		<verTambem
+			refids="eficacia inicio-de-eficacia-expressa fim-de-eficacia-expressa periodo-de-vigencia" />
+	</entrada>
+	<entrada id="periodo-de-vigencia">
+		<singular>Período de Vigência</singular>
+		<definicao>Período durante o qual uma norma ou parte dela está em
+			vigor. Em alguns casos,
+			uma norma jurídica pode ter a vigência interrompida, pré determinada ou
+			restabelecida.
+		</definicao>
+		<verTambem
+			refids="vigencia periodo-de-eficacia inicio-de-vigencia fim-de-vigencia" />
+	</entrada>
+	<entrada id="prejudicada">
+		<singular>Prejudicada</singular>
+		<definicao />
+		<ver refid="declaracao-de-prejudicialidade-de-medida-provisoria" />
+	</entrada>
+	<entrada id="promulgacao">
+		<singular>Promulgação</singular>
+		<definicao>Ato pelo qual a autoridade competente dá ciência ao público
+			em geral de que uma
+			norma foi aprovada e entrará em vigor. Atesta a existência da norma.
+		</definicao>
+	</entrada>
+	<entrada id="promulgacao-de-ato-internacional">
+		<singular>Promulgação de Ato Internacional</singular>
+		<definicao>Ato pelo qual um decreto promulga o texto de um ato
+			internacional, passando a
+			entrar em vigor em território nacional.
+		</definicao>
+	</entrada>
+	<entrada id="proposicao-legislativa">
+		<singular>Proposição Legislativa</singular>
+		<definicao>Toda matéria sujeita a deliberação de uma casa legislativa
+			que após o devido
+			processo legislativo poderá se transformar em norma jurídica.
+		</definicao>
+		<verTambem
+			refids="exposicao-de-motivos justificativa-da-proposicao-legislativa" />
+	</entrada>
+	<entrada id="prorrogacao-de-medida-provisoria-por-ato-declaratorio">
+		<singular>Prorrogação de Medida Provisória por Ato Declaratório</singular>
+		<definicao>Ato pelo qual o Congresso Nacional ou Assembléia
+			Legislativa prorroga a vigência
+			de uma Medida Provisória. (RCN 1/2010 -- art 10).
+		</definicao>
+		<especificoDe refid="prorrogacao-de-vigencia-por-prazo-determinado" />
+	</entrada>
+	<entrada id="prorrogacao-de-vigencia">
+		<singular>Prorrogação de Vigência</singular>
+		<definicao>Evento pelo qual a norma ou dispositivo tem o seu período
+			de vigência ampliado.
+		</definicao>
+	</entrada>
+	<entrada id="prorrogacao-de-vigencia-por-prazo-determinado">
+		<singular>Prorrogação de Vigência por Prazo Determinado</singular>
+		<definicao>Evento pelo qual a norma ou dispositivo tem o seu período
+			de vigência ampliado
+			por prazo determinado.
+		</definicao>
+		<especificoDe refid="prorrogacao-de-vigencia" />
+	</entrada>
+	<entrada id="prorrogacao-de-vigencia-por-prazo-indeterminado">
+		<singular>Prorrogação de Vigência por Prazo Indeterminado</singular>
+		<definicao>Evento pelo qual a norma ou dispositivo tem o seu período
+			de vigência ampliado
+			por prazo indeterminado. Esse relacionamento abrange também aqueles
+			derivados da EMC
+			32/2001.
+		</definicao>
+		<especificoDe refid="prorrogacao-de-vigencia" />
+	</entrada>
+	<entrada id="publicacao">
+		<singular>Publicação</singular>
+		<definicao>Veiculação dos atos normativos em periódico oficial.
+		</definicao>
+		<verTambem refids="texto-original republicacao republicacao-atualizada" />
+	</entrada>
+	<entrada id="publicacao-subsequente">
+		<singular>Publicação Subsequente</singular>
+		<definicao>Veiculações subsequentes do mesmo teor no mesmo periódico
+			oficial ou em
+			periódicos diferentes após uma publicação originária.
+		</definicao>
+		<verTambem refids="texto-original republicacao republicacao-atualizada" />
+	</entrada>
+	<entrada id="publicacao-de-veto-rejeitado">
+		<singular>Publicação de Veto Rejeitado</singular>
+		<definicao>Veiculação, em periódico oficial, de norma ou dispositivo
+			cujo veto foi rejeitado
+			pelo Legislativo.
+		</definicao>
+		<verTambem refids="publicacao apreciacao-de-veto veto-parcial veto-total" />
+	</entrada>
+	<entrada id="ratificacao">
+		<singular>Ratificação</singular>
+		<definicao />
+		<ver refid="convalidacao" />
+	</entrada>
+	<entrada id="ratificacao-de-ato-internacional">
+		<singular>Ratificação de Ato Internacional</singular>
+		<definicao>Evento pelo qual o Presidente da República ou, por
+			delegação, o Ministro das
+			Relações Exteriores, confirma a adesão do Brasil ao ato internacional
+			anteriormente
+			assinado. Por ser ato específico da formação de norma internacional, este
+			evento está
+			fora do escopo do SILEX.
+		</definicao>
+	</entrada>
+	<entrada id="reedicao">
+		<singular>Reedição</singular>
+		<definicao>É a publicação da medida provisória estendendo sua
+			vigência. A reedição de Medida
+			Provisória, com ou sem alteração no seu texto, é considerada como uma Versão de
+			Norma
+			Jurídica Integral e não como uma nova Norma Jurídica.
+		</definicao>
+		<verTambem
+			refids="prorrogacao-de-medida-provisoria-por-ato-declaratorio versao-de-norma-juridica-integral norma-juridica" />
+	</entrada>
+	<entrada id="reedicao-subsequente-com-alteracao">
+		<singular>Reedição Subsequente com Alteração</singular>
+		<definicao>É a publicação da medida provisória estendendo sua vigência
+			com alteração no seu
+			texto em relação à edição imediatamente anterior.
+		</definicao>
+		<especificoDe refid="reedicao" />
+	</entrada>
+	<entrada id="reedicao-subsequente-sem-alteracao">
+		<singular>Reedição Subsequente sem Alteração</singular>
+		<definicao>É a publicação da medida provisória estendendo sua vigência
+			sem alteração no seu
+			texto em relação à edição imediatamente anterior.
+		</definicao>
+		<especificoDe refid="reedicao" />
+	</entrada>
+	<entrada id="referencia-legislativa">
+		<singular>Referência Legislativa</singular>
+		<definicao>Citação de normas que embasam determinado texto não
+			normativo.</definicao>
+	</entrada>
+	<entrada id="regime-de-medida-provisoria-ou-decreto-lei">
+		<singular>Regime de Medida Provisória ou Decreto-Lei</singular>
+		<definicao>Conjunto de regras vigente em determinado período que
+			regula a edição, vigência,
+			eficácia, aceitabilidade e conversão das normas com força de lei editadas pelo
+			Chefe do
+			Poder Executivo.
+		</definicao>
+	</entrada>
+	<entrada id="regulamentacao">
+		<singular>Regulamentação</singular>
+		<definicao>Associação que ocorre entre a norma geral (regulamentada) e
+			a norma específica
+			(regulamentadora) de forma a detalhar a regulamentada para a sua correta execução e/ou
+			aplicação.
+		</definicao>
+	</entrada>
+	<entrada
+		id="regulamentacao-de-relacoes-juridicas-regidas-por-medida-provisoria-nao-convertida-em-lei">
+		<singular>Regulamentação de Relações Jurídicas Regidas por MPV não convertida
+            em Lei</singular>
+		<definicao>Por força do par 3º do art. 62 da CF, o Congresso Nacional
+			deve editar decreto
+			legislativo para regulamentar as relações jurídicas decorrentes de medida
+			provisória não
+			convertida em lei.
+		</definicao>
+	</entrada>
+	<entrada id="rejeicao-de-decreto-lei">
+		<singular>Rejeição de Decreto-Lei</singular>
+		<definicao>Ato
+			pelo qual o Poder Legislativo, por meio de um decreto legislativo,
+			rejeita o texto de um
+			decreto-lei.
+		</definicao>
+		<refLeg>Constituição de 1967, art. 58, § único</refLeg>
+	</entrada>
+	<entrada id="rejeicao-de-medida-provisoria">
+		<singular>Rejeição de Medida Provisória</singular>
+		<definicao>Ato pelo qual o Poder Legislativo, por meio de um ato
+			declaratório do Presidente
+			do Congresso Nacional, do Presidente do Senado Federal ou do Presidente
+			da Câmara dos
+			Deputados rejeita uma Medida Provisória caso não se verifique os pressupostos
+			de
+			relevância e urgência constitucional. Antes da Resolução CN 1/2002,
+			utilizava-se o termo
+			``Declaração de Insubsistência de Medida Provisória''.
+		</definicao>
+		<verTambem refids="declaracao-de-insubsistencia-de-medida-provisoria" />
+	</entrada>
+	<entrada id="rejeicao-do-veto">
+		<singular>Rejeição do Veto</singular>
+		<definicao />
+		<ver refid="publicacao-de-veto-rejeitado" />
+	</entrada>
+	<entrada id="remissao">
+		<singular>Remissão</singular>
+		<definicao>Ato ou efeito de encaminhar a um determinado ponto.
+		</definicao>
+		<verTambem refids="remissao-normativa" />
+	</entrada>
+	<entrada id="remissao-normativa">
+		<singular>Remissão Normativa</singular>
+		<definicao>Ato ou efeito de encaminhar a um determinado ponto de um
+			texto normativo. </definicao>
+		<especificoDe refid="remissao" />
+	</entrada>
+	<entrada id="remissao-interna">
+		<singular>Remissão Interna</singular>
+		<definicao>Ato ou efeito de encaminhar a um determinado ponto do
+			próprio texto da norma. </definicao>
+		<especificoDe refid="remissao-normativa" />
+	</entrada>
+	<entrada id="remissao-encadeada">
+		<singular>Remissão Encadeada</singular>
+		<definicao>Remissão a dispositivos legislativos que possuem outras
+			remissões (remissão da
+			remissão).
+		</definicao>
+		<especificoDe refid="remissao-normativa" />
+	</entrada>
+	<entrada id="remissao-externa">
+		<singular>Remissão Externa</singular>
+		<definicao>Ato ou efeito de encaminhar a um determinado ponto de outro
+			texto normativo. </definicao>
+		<especificoDe refid="remissao-normativa" />
+	</entrada>
+	<entrada id="renumeracao">
+		<singular>Renumeração</singular>
+		<definicao>Alteração no rótulo do dispositivo por comando expresso. A
+			LCP 95/1998 proíbe nos
+			casos de artigos e de unidades superiores a artigos.
+		</definicao>
+		<especificoDe refid="modificacao" />
+	</entrada>
+	<entrada id="repristinacao">
+		<singular>Repristinação</singular>
+		<definicao>Revalidação ou volta ao uso ou ao vigor de uma norma
+			jurídica, por revogação ou
+			declaração de inconstitucionalidade da norma revogadora.
+		</definicao>
+	</entrada>
+	<entrada id="repristinacao-expressa">
+		<singular>Repristinação Expressa</singular>
+		<definicao>
+			Revalidação ou volta ao uso ou ao vigor de uma norma jurídica, de
+			forma expressa,
+			por revogação ou declaração de inconstitucionalidade da norma
+			revogadora.
+		</definicao>
+		<especificoDe refid="repristinacao" />
+		<verTambem refids="revigoracao" />
+	</entrada>
+	<entrada id="repristinacao-expressa--com-sentido-de-revigoracao">
+		<singular>Repristinação Expressa (com sentido de Revigoração)</singular>
+		<definicao />
+		<ver refid="revigoracao" />
+		<exemplo>Lei Distrital nº 2803/2001</exemplo>
+	</entrada>
+	<entrada id="repristinacao-tacita">
+		<singular>Repristinação Tácita</singular>
+		<definicao>Revalidação ou volta ao uso ou ao vigor de uma norma
+			jurídica automática. O
+			ordenamento jurídico do Brasil não admite este instituto.
+		</definicao>
+		<especificoDe refid="repristinacao" />
+	</entrada>
+	<entrada id="republicacao">
+		<singular>Republicação</singular>
+		<definicao>Publicação do texto de norma jurídica destinada a efetuar
+			correções (LINDB, Art 1º, § 3º).
+		</definicao>
+		<verTambem
+			refids="republicacao-atualizada publicacao publicacao-de-veto-rejeitado" />
+	</entrada>
+	<entrada id="republicacao-atualizada">
+		<singular>Republicação atualizada</singular>
+		<definicao>Ocorre quando a norma determina a republicação nos casos de
+			alterações
+			significativas (Dec. 4.176, art. 25) ou quando a norma é republicada oficialmente
+			com
+			atualização.
+		</definicao>
+		<verTambem refids="republicacao publicacao publicacao-de-veto-rejeitado" />
+	</entrada>
+	<entrada id="reserva-de-aplicacao">
+		<singular>Reserva de Aplicação</singular>
+		<definicao />
+		<ver refid="ressalva-de-aplicacao" />
+	</entrada>
+	<entrada id="ressalva-de-aplicacao">
+		<singular>Ressalva de Aplicação</singular>
+		<definicao>Restrição à aplicação da norma em uma situação
+			expressamente
+			determinada.
+		</definicao>
+		<verTambem refids="alteracao" />
+	</entrada>
+	<entrada id="restabelecimento-de-dispositivo">
+		<singular>Restabelecimento de Dispositivo</singular>
+		<definicao>
+			Caso específico de alteração em que o legislador aproveita um
+			dispositivo
+			revogado estabelecendo nova redação. A alínea c do inciso III do art. 12 da
+			Lei
+			Complementar 95/1998 veda o aproveitamento de dispositivo vetado, revogado,
+			declarado
+			inconstitucional ou de execução suspensa pelo Senado em face de decisão do Supremo
+			Tribunal Federal.
+		</definicao>
+		<especificoDe refid="modificacao" />
+		<verTambem refids="revigoracao" />
+	</entrada>
+	<entrada id="restauracao-de-dispositivo">
+		<singular>Restauração de Dispositivo</singular>
+		<definicao>Caso em que o dispositivo volta a ter vigência por conta da
+			rejeição ou decurso
+			de prazo de medida provisória que o alterou ou revogou.
+		</definicao>
+	</entrada>
+	<entrada id="restabelecimento-de-efeitos">
+		<singular>Restabelecimento de Efeitos</singular>
+		<definicao>Evento pelo qual a norma ou dispositivo anteriormente
+			suspenso volta a produzir
+			efeitos.
+		</definicao>
+		<verTambem refids="revigoracao suspensao-de-efeitos" />
+	</entrada>
+	<entrada id="restabelecimento-de-eficacia">
+		<singular>Restabelecimento de Eficácia</singular>
+		<definicao>Evento pelo qual a norma ou dispositivo anteriormente
+			suspenso volta a ter
+			eficácia.
+		</definicao>
+		<verTambem refids="suspensao-de-eficacia" />
+	</entrada>
+	<entrada id="restabelecimento-de-vigencia">
+		<singular>Restabelecimento de Vigência</singular>
+		<definicao />
+		<ver refid="revigoracao" />
+	</entrada>
+	<entrada id="restricao-de-aplicacao">
+		<singular>Restrição de aplicação</singular>
+		<definicao />
+		<ver refid="ressalva-de-aplicacao" />
+	</entrada>
+	<entrada id="retificacao">
+		<singular>Retificação</singular>
+		<definicao>Ato de corrigir falhas, erros ou omissões nos textos das
+			normas jurídicas
+			anteriormente publicadas.
+		</definicao>
+		<verTambem
+			refids="retificacao--com-sentido-de-alteracao texto-da-retificacao" />
+	</entrada>
+	<entrada id="retificacao--com-sentido-de-alteracao">
+		<singular>Retificação (com sentido de Alteração)</singular>
+		<definicao>O termo ``retificação'' foi utilizado em normas promulgadas
+			na primeira metade do
+			século XX com o sentido de ``alteração''.
+		</definicao>
+		<verTambem refids="alteracao retificacao" />
+	</entrada>
+	<entrada id="revigoracao">
+		<singular>Revigoração</singular>
+		<definicao>Evento pelo qual a norma ou dispositivo adquire um novo
+			período de vigência.
+			Excepcionalmente, no âmbito infralegal, utiliza-se a expressão ``restabelecimento de
+			efeitos''.
+		</definicao>
+		<verTambem
+			refids="periodo-de-vigencia repristinacao-expressa restabelecimento-de-efeitos restabelecimento-de-dispositivo" />
+	</entrada>
+	<entrada id="revogacao">
+		<singular>Revogação</singular>
+		<definicao>Evento pelo qual se retira
+			expressamente a vigência de norma no todo ou de dispositivo de norma.
+		</definicao>
+		<verTambem refids="anulacao ato-invalido vigencia" />
+		<refLeg>LCP 95/1998, Art. 12, III, c --
+            veda o aproveitamento do numero do dispositivo revogado</refLeg>
+	</entrada>
+	<entrada id="revogacao-com-ressalva">
+		<singular>Revogação com Ressalva</singular>
+		<definicao>Evento em que se retira a vigência da norma, ressalvando
+			determinadas situações. </definicao>
+		<especificoDe refid="revogacao" />
+		<verTambem refids="alerta" />
+		<nota>Este relacionamento exige a criação de um relacionamento Alerta.</nota>
+	</entrada>
+	<entrada id="revogacao-condicionada">
+		<singular>Revogação Condicionada</singular>
+		<definicao>É a revogação que depende da ocorrência de um outro evento.
+			(ex: Lei 5.908/1973 --
+			art. 9 par 2º a revogação da norma anterior depende da instalação da
+			empresa)
+		</definicao>
+		<especificoDe refid="revogacao" />
+	</entrada>
+	<entrada id="revogacao-de-norma-integral-com-ressalva">
+		<singular>Revogação de Norma Integral com Ressalva</singular>
+		<definicao>Evento em que se retira a vigência da norma ressalvando
+			algumas partes, sem a
+			indicação expressa dos dispositivos mantidos (ex: Lei 9472, art. 215, I,
+			revogando CBT
+			com ressalva ``salvo quanto a matéria penal não tratada nesta Lei e
+			quanto aos preceitos
+			relativos à radiodifusão'').
+		</definicao>
+		<especificoDe refid="revogacao" />
+		<verTambem refids="alerta" />
+		<nota>este relacionamento exige a criação de um relacionamento Alerta.</nota>
+	</entrada>
+	<entrada id="revogacao-expressa">
+		<singular>Revogação Expressa</singular>
+		<definicao />
+		<ver refid="revogacao" />
+	</entrada>
+	<entrada id="revogacao-parcial">
+		<singular>Revogação Parcial</singular>
+		<definicao>Relação entre normas derivada dos relacionamentos de
+			Revogação, Revogação Parcial
+			com Ressalva, Revogação da Norma com Ressalva. Trata-se, portanto, de um
+			relacionamento
+			derivado.
+		</definicao>
+		<especificoDe refid="revogacao" />
+		<verTambem refids="revogacao-total-da-norma" />
+	</entrada>
+	<entrada id="revogacao-por-declaracao">
+		<singular>Revogação por Declaração</singular>
+		<definicao />
+		<ver refid="revogacao" />
+	</entrada>
+	<entrada id="revogacao-por-incompatibilidade">
+		<singular>Revogação por Incompatibilidade</singular>
+		<definicao />
+		<ver refid="revogacao-tacita" />
+	</entrada>
+	<entrada id="revogacao-tacita">
+		<singular>Revogação Tácita</singular>
+		<definicao>Evento em que a norma anterior é revogada quando houver
+			incompatibilidade entre
+			ela e os preceitos da nova norma.
+		</definicao>
+		<especificoDe refid="revogacao" />
+		<verTambem refids="novo-tratamento-da-materia alerta" />
+		<nota>Esse relacionamento não será registrado no SILEX, pois depende de
+            interpretação.</nota>
+	</entrada>
+	<entrada id="revogacao-total-da-norma">
+		<singular>Revogação Total da Norma</singular>
+		<definicao />
+		<ver refid="revogacao" />
+	</entrada>
+	<entrada id="silex">
+		<singular>SILEX</singular>
+		<definicao>Modelo de Requisitos para Sistemas Informatizados de Gestão da Informação
+        Jurídica, elaborado no âmbito do Comitê Gestor de Informação do Portal LexML (CGLEXML)</definicao>
+	</entrada>
+	<entrada id="situacao-da-norma">
+		<singular>Situação da Norma</singular>
+		<definicao>Exprime o estado ou condição da norma em relação a sua
+			vigência e
+			eficácia.
+		</definicao>
+	</entrada>
+	<entrada id="supressao--com-sentido-de-revogacao">
+		<singular>Supressão (com sentido de Revogação)</singular>
+		<definicao>O termo ``suprimido'' foi utilizado em normas promulgadas na
+			primeira metade do
+			século XX com o sentido de ``revogação''.
+		</definicao>
+		<especificoDe refid="revogacao" />
+		<verTambem refids="revogacao" />
+		<exemplo>Art. 686 da Consolidação das Leis do Trabalho (CLT)</exemplo>
+	</entrada>
+	<entrada id="supressao-de-expressao">
+		<singular>Supressão de Expressão</singular>
+		<definicao>É a alteração expressa que suprime uma expressão no
+			dispositivo. </definicao>
+		<especificoDe refid="alteracao-expressa" />
+	</entrada>
+	<entrada id="supressao-de-dispositivo">
+		<singular>Supressão de Dispositivo</singular>
+		<definicao>Caso em que o dispositivo acrescido por medida provisória
+			perde a sua vigência
+			por conta da rejeição ou decurso de prazo da medida provisória ou ainda
+			por ausência de
+			sua previsão pela lei de conversão.
+		</definicao>
+		<especificoDe refid="modificacao" />
+	</entrada>
+	<entrada id="suspensao-de-efeitos">
+		<singular>Suspensão de Efeitos</singular>
+		<definicao>Relacionamento que suspende os efeitos de norma anterior.
+			Geralmente ocorre no
+			âmbito infralegal com caráter transitório.
+		</definicao>
+		<verTambem refids="restabelecimento-de-efeitos" />
+	</entrada>
+	<entrada id="suspensao-de-eficacia">
+		<singular>Suspensão de Eficácia</singular>
+		<definicao>
+			Evento pelo qual se suspende a aplicação da norma para todos os atos
+			ou fatos por
+			ela regulados. (Vide LCP 95/1998, Art. 12, III, c -- veda o
+			aproveitamento do numero do
+			dispositivo com eficácia suspensa).
+		</definicao>
+		<verTambem
+			refids="decisao-liminar-em-sede-de-adi restabelecimento-de-eficacia" />
+	</entrada>
+	<entrada id="suspensao-de-execucao">
+		<singular>Suspensão de Execução</singular>
+		<definicao />
+		<ver refid="suspensao-de-eficacia" />
+	</entrada>
+	<entrada id="tecnica-legislativa">
+		<singular>Técnica Legislativa</singular>
+		<definicao>Conjunto de procedimentos e normas redacionais específicas
+			que visam a elaboração
+			de um texto articulado normativo.
+		</definicao>
+	</entrada>
+	<entrada id="texto">
+		<singular>Texto</singular>
+		<definicao>Expressão linguística composta por uma sequencia de
+			caracteres.</definicao>
+	</entrada>
+	<entrada id="texto--por-derivacao" classificacao="sim">
+		<singular>Texto (por Derivação)</singular>
+		<definicao>Classificação do conceito Texto na perspectiva da derivação.</definicao>
+		<especificoDe refid="texto" />
+	</entrada>
+	<entrada id="texto--por-normalizacao" classificacao="sim">
+		<singular>Texto (por Normalização)</singular>
+		<definicao>Classificação do conceito Texto na perspectiva do processo de normalização.</definicao>
+		<especificoDe refid="texto" />
+	</entrada>
+	<entrada id="texto-atualizado">
+		<singular>Texto Atualizado</singular>
+		<definicao />
+		<ver refid="texto-compilado" />
+	</entrada>
+	<entrada id="texto-compilado">
+		<singular>Texto Compilado</singular>
+		<definicao>Texto derivado de uma norma onde se reúnem todas as
+			modificações (alterações,
+			revogações, retificações, etc) para uma determinada data ou para um período.
+		</definicao>
+		<especificoDe refid="texto-derivado" />
+		<verTambem refids="alteracao compilacao" />
+	</entrada>
+	<entrada id="texto-da-retificacao">
+		<singular>Texto da Retificação</singular>
+		<definicao>Texto que veicula a retificação.</definicao>
+		<verTambem refids="retificacao" />
+	</entrada>
+	<entrada id="texto-da-republicacao">
+		<singular>Texto da Republicação</singular>
+		<definicao>Texto que veicula a republicação em periódico oficial.
+		</definicao>
+		<especificoDe refid="texto-derivado" />
+	</entrada>
+	<entrada id="texto-da-republicacao-com-atualizacao">
+		<singular>Texto da Republicação com Atualização</singular>
+		<definicao>Texto que veicula a versão atualizada de um diploma legal
+			em periódico
+			oficial.
+		</definicao>
+		<especificoDe refid="texto-derivado" />
+	</entrada>
+	<entrada id="texto-derivado">
+		<singular>Texto Derivado</singular>
+		<definicao>Texto original acrescido das modificações posteriores.
+		</definicao>
+		<especificoDe refid="texto--por-derivacao" />
+	</entrada>
+	<entrada id="texto-monovigente">
+		<singular>Texto Monovigente</singular>
+		<definicao>Texto que traz a redação atualizada da norma para uma
+			determinada
+			data.
+		</definicao>
+		<especificoDe refid="texto-compilado" />
+	</entrada>
+	<entrada id="texto-multivigente">
+		<singular>Texto Multivigente</singular>
+		<definicao>Texto que traz a redação atualizada para uma determinada
+			data da norma juntamente
+			com todas as versões dos textos dos dispositivos no período.
+		</definicao>
+		<especificoDe refid="texto-compilado" />
+	</entrada>
+	<entrada id="texto-nao-normalizado">
+		<singular>Texto não Normalizado</singular>
+		<definicao>Texto não submetidos ao processo de normalização.
+		</definicao>
+		<especificoDe refid="texto--por-normalizacao"  />
+	</entrada>
+	<entrada id="texto-normalizado">
+		<singular>Texto Normalizado</singular>
+		<definicao>Texto resultante de um processo de normalização, no qual
+			alguns elementos
+			estruturais são padronizados para a otimização do processamento informatizado.
+			Essa
+			normalização não afeta o conteúdo do dispositivo. Pode ocorrer a padronização de
+			rótulos, o ajuste no rótulo de agrupadores de artigos em relação à
+			capitulação, a
+			marcação de termos em línguas estrangeiras.
+		</definicao>
+		<especificoDe refid="texto--por-normalizacao" />
+	</entrada>
+	<entrada id="texto-original">
+		<singular>Texto Original</singular>
+		<definicao>Texto fidedigno à primeira publicação do diploma no
+			periódico oficial sem
+			considerar as retificações e alterações.
+		</definicao>
+		<especificoDe refid="texto--por-derivacao"   />
+		<verTambem refids="publicacao texto-retificado" />
+	</entrada>
+	<entrada id="texto-retificado">
+		<singular>Texto Retificado</singular>
+		<definicao>
+			Texto resultante da aplicação da retificação no texto original.
+		</definicao>
+		<especificoDe refid="texto-compilado" />
+		<verTambem refids="texto-da-retificacao texto-original" />
+	</entrada>
+	<entrada id="tornar-sem-efeito--com-sentido-de-anulacao">
+		<singular>Tornar sem efeito (com sentido de Anulação)</singular>
+		<definicao />
+		<ver refid="anulacao" />
+	</entrada>
+	<entrada id="tornar-sem-efeito--com-sentido-de-retirada-de-eficacia">
+		<singular>Tornar sem efeito (com sentido de Retirada de Eficácia)</singular>
+		<definicao>Ato pelo qual a autoridade competente retira a eficácia de
+			um ato anterior, como
+			no caso de ato de provimento cuja posse não tenha sido efetivada no
+			prazo
+			previsto.
+		</definicao>
+		<refLeg>Lei 8112/90, art. 13, § 6º</refLeg>
+	</entrada>
+	<entrada id="tornar-sem-efeito--com-sentido-de-revogacao">
+		<singular>Tornar sem efeito (com sentido de Revogação)</singular>
+		<definicao />
+		<ver refid="revogacao" />
+	</entrada>
+	<entrada id="unidade-de-informacao">
+		<singular>Unidade de Informação</singular>
+		<definicao>Documento ou parte específica do documento que possui um
+			nome único.</definicao>
+	</entrada>
+	<entrada id="vacancia">
+		<singular>Vacância</singular>
+		<definicao />
+		<ver refid="vacatio-legis" />
+	</entrada>
+	<entrada id="vacatio-legis">
+		<singular>vacatio legis</singular>
+		<definicao>Período entre a publicação e a entrada em vigor da norma.
+		</definicao>
+	</entrada>
+	<entrada id="versao-de-norma-juridica">
+		<singular>Versão de Norma Jurídica</singular>
+		<definicao>Versão do comando legal veiculado por um texto vigente em
+			uma determinada
+			data.
+		</definicao>
+		<verTambem refids="texto-original texto-derivado norma-juridica" />
+	</entrada>
+	<entrada id="versao-de-norma-juridica-integral">
+		<singular>Versão de Norma Jurídica Integral</singular>
+		<definicao>Versão de uma Norma Jurídica considerada como um todo em
+			uma determinada
+			data.
+		</definicao>
+		<especificoDe refid="versao-de-norma-juridica" />
+		<verTambem
+			refids="norma-juridica-integral reedicao texto-original texto-derivado" />
+	</entrada>
+	<entrada id="versao-de-dispositivo-de-norma-juridica">
+		<singular>Versão de Dispositivo de Norma Jurídica</singular>
+		<definicao>Versão do comando legal veiculado por um texto vigente de
+			um dispositivo em uma
+			determinada data.
+		</definicao>
+		<especificoDe refid="versao-de-norma-juridica" />
+		<verTambem refids="dispositivo-de-norma-juridica" />
+	</entrada>
+	<entrada id="veto">
+		<singular>Veto</singular>
+		<definicao>Ato pelo qual o Chefe do Poder Executivo nega sanção ao
+			Projeto -- ou a parte dele
+			--, obstando à sua conversão em norma jurídica. (Manual Presidência...)
+			(Vide CF, art.
+			66, Par 1º) (Vide LCP 95/1998, Art. 12, III, c -- veda o aproveitamento
+			do numero do
+			dispositivo vetado).
+		</definicao>
+	</entrada>
+	<entrada id="veto-de-expressao">
+		<singular>Veto de Expressão</singular>
+		<definicao>É o veto parcial que abrange expressões ou palavras dos
+			dispositivos. A partir do
+			início da vigência da Emenda 17/1965 da CF de 1946, proibiu-se o veto de
+			expressão.
+		</definicao>
+		<especificoDe refid="veto-parcial" />
+	</entrada>
+	<entrada id="veto-parcial">
+		<singular>Veto Parcial</singular>
+		<definicao>É o veto que abrange o texto integral de artigo, de
+			parágrafo, de inciso ou de
+			alínea, podendo abranger, antes da vigência da Emenda 17/1965 da CF de 1946,
+			expressões
+			ou palavra dos dispositivos. Neste último caso, deve-se utilizar o
+			relacionamento ``Veto
+			de Expressão''. (Vide CF, art. 66, Par 2º).
+		</definicao>
+		<especificoDe refid="veto" />
+		<verTambem refids="rejeicao-do-veto" />
+	</entrada>
+	<entrada id="veto-total">
+		<singular>Veto Total</singular>
+		<definicao>É o veto que abrange todo o texto da proposição
+			legislativa. </definicao>
+		<especificoDe refid="veto" />
+		<verTambem refids="rejeicao-do-veto" />
+	</entrada>
+	<entrada id="vigencia">
+		<singular>Vigência</singular>
+		<definicao>É a existência da norma no ordenamento jurídico por um ou
+			mais períodos
+			temporais. Uma norma vige até que outra a revogue ou até que expire o prazo
+			nela
+			previsto. Situa-se a vigência como marco intermédio entre a existência, que se
+			formaliza
+			pela promulgação, e a eficácia, que decorre da observância social da
+			norma. (Enc.
+			Saraiva, v. 77).
+		</definicao>
+		<verTambem refids="eficacia periodo-de-vigencia revogacao" />
+	</entrada>
+	
+</glossario>

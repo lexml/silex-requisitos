@@ -1,0 +1,50 @@
+<?xml encoding="UTF-8"?>
+
+<!ELEMENT glossario (entrada)+>
+<!ATTLIST glossario
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT entrada (singular,acronimo?,definicao,ver?,especificoDe?,
+                   verTambem?,(exemplo|nota|refLeg)?)>
+<!ATTLIST entrada
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #REQUIRED>
+
+<!ELEMENT singular (#PCDATA)>
+<!ATTLIST singular
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT acronimo (#PCDATA)>
+<!ATTLIST acronimo
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT definicao (#PCDATA)>
+<!ATTLIST definicao
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT ver EMPTY>
+<!ATTLIST ver
+  xmlns CDATA #FIXED ''
+  refid NMTOKEN #REQUIRED>
+
+<!ELEMENT especificoDe EMPTY>
+<!ATTLIST especificoDe
+  xmlns CDATA #FIXED ''
+  refid NMTOKEN #REQUIRED>
+
+<!ELEMENT verTambem EMPTY>
+<!ATTLIST verTambem
+  xmlns CDATA #FIXED ''
+  refids CDATA #REQUIRED>
+
+<!ELEMENT exemplo (#PCDATA)>
+<!ATTLIST exemplo
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT nota (#PCDATA)>
+<!ATTLIST nota
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT refLeg (#PCDATA)>
+<!ATTLIST refLeg
+  xmlns CDATA #FIXED ''>

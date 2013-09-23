@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="glossario">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="entrada"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="entrada">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="verTambem"/>
+        <xs:element ref="acronimo"/>
+        <xs:element ref="definicao"/>
+        <xs:element ref="especificoDe"/>
+        <xs:element ref="exemplo"/>
+        <xs:element ref="fonte"/>
+        <xs:element ref="nota"/>
+        <xs:element ref="refLeg"/>
+        <xs:element ref="singular"/>
+        <xs:element ref="ver"/>
+      </xs:choice>
+      <xs:attribute name="id" use="required" type="xs:ID"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="acronimo" type="xs:string"/>
+  <xs:element name="definicao">
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="verTambem"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="especificoDe">
+    <xs:complexType>
+      <xs:attribute name="refid" use="required" type="xs:IDREF"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="exemplo" type="xs:string"/>
+  <xs:element name="fonte" type="xs:string"/>
+  <xs:element name="nota" type="xs:string"/>
+  <xs:element name="refLeg" type="xs:string"/>
+  <xs:element name="singular" type="xs:string"/>
+  <xs:element name="ver">
+    <xs:complexType>
+      <xs:attribute name="refid" use="required" type="xs:IDREF"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="verTambem">
+    <xs:complexType>
+      <xs:attribute name="refids" use="required" type="xs:IDREFS"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

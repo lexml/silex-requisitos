@@ -1,0 +1,56 @@
+\RequirePackage{l3regex}
+
+% -------
+% Extensão de \autoref
+% -------
+\newcommand{\textref}[2][autoref]{%
+	\ifthenelse{\equal{#1}{autoref}}%
+		{\autoref{#2}}%
+		{\hyperref[#2]{#1~\ref{#2}}}}	
+
+
+% -------
+% Entrada da tabela de requisitos
+% -------
+\newcommand{\requisito}[3]{%
+  \edef\@currentlabel{#1}% Set target label
+  \phantomsection% Correct hyper reference link
+  #1\label{#1} (#2) : #3
+}
+
+% -------
+% Tabela de requisitos
+% -------
+\newenvironment{tabelarequisito}[2]{%
+\par
+\textbf{#1}\label{#2}
+\par
+}{%
+ : Fim da tabela de requisitos :
+}
+
+
+% -------
+% Entrada da tabela de relacionamentos
+% -------
+\newcommand{\relacionamento}[7]{%
+\renewcommand{\mypar}{}%
+\setlength{\parindent}{0cm}%
+  \textbf{#3} \\
+  \emph{Domínio:} #1 \\ 
+  \emph{Papel (Domínio):} #2 \\
+  \emph{Nome relacionamento:} #4 \\
+  \emph{Papel (Imagem):} #5 \\
+  \emph{Imagem:} #6 \\
+  \emph{Nota de compilação:} #7
+}
+
+% -------
+% Tabela de relacionamentos
+% -------
+\newenvironment{tabelarelacionamento}[2]{%
+\par
+\textbf{#1}\label{#2}
+\par
+}{%
+}

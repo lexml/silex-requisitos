@@ -1,0 +1,726 @@
+% ----------------------------------------------------------
+\chapter{Tabelas de relacionamentos}
+\label{apendices_tabelas_relacionamentos}
+% ----------------------------------------------------------
+
+\newcommand{\mypar}{\par}
+
+% --
+\begin{tabelarelacionamento}{Relacionamentos
+de Publicação}{tab-relacionamento-publicacao}
+
+ \relacionamento
+ 	{Versão da Norma Jurídica}
+ 	{PUBLICADA EM (1.. 1)}
+ 	{Publicação}
+ 	{(1.. n) Publicação (1..n) 
+ 	 \mypar 
+ 	 [ data, edição, \{ pagina, coluna \} inicial e final]}
+ 	{PUBLICAÇÃO DE (1..1)}
+ 	{Documento da Publicação Oficial (seção, edição extra, suplemento)}
+ 	{D: ( Publicado no <doc>, em <data>, na p. <pagInicial>[-<pagFinal>)}
+ 	
+ \relacionamento
+ 	{Versão da Norma Jurídica}
+ 	{PUBLICADA NOVAMENTE EM (1.. 1)}
+ 	{Publicação Subsequente}
+ 	{(1.. n) Publicação Subsequente (1..n) 
+ 	 \mypar 
+ 	 [ data, edição, \{ pagina, coluna \} inicial e final ]}
+ 	{PUBLICAÇÃO SUBSEQUENTE DE (1..1)}
+ 	{Documento da Publicação Oficial (seção, edição extra, suplemento)}
+ 	{D: ( Publicado novamente no <doc>, em <data>, na p. <pagInicial>[-<pagFinal>)}
+ 	
+ \relacionamento
+ 	{Versão da Norma Jurídica}
+ 	{PUBLICADA EM (1.. 1)}
+ 	{Publicação de Veto Rejeitado}
+ 	{(1.. n) Publicação de Veto Rejeitado (1..n)
+ 	 \mypar 
+ 	 [ data, edição, \{ pagina, coluna \} inicial e final, dataIniVigencia ]}
+ 	{PUBLICAÇÃO DE (1..1)}
+ 	{Documento da Publicação Oficial (seção, edição extra, suplemento)}
+ 	{D: ( Publicado no <doc>, em <data>, na p. <pagInicial>[-<pagFinal> com vigência a partir de <dataVig>)}
+ 	
+ \relacionamento
+ 	{Versão da Norma Jurídica}
+ 	{REPUBLICADA EM (1..1)}
+ 	{Republicação}
+ 	{(1..n) Republicação (1..n)
+ 	 \mypar 
+ 	 [ data, edição, \{pagina, coluna\} inicial e final ]}
+ 	{REPUBLICAÇÃO DE (1..1)}
+ 	{Documento da Publicação Oficial (seção, edição extra, suplemento)}
+ 	{D: ( Republicado no <doc>, em <data>, na p. <pagInicial>[-<pagFinal>])}
+ 	
+ \relacionamento
+ 	{Versão da Norma Jurídica}
+ 	{REPUBLICADA COM ATUALIZAÇÃO EM (1..1)}
+ 	{Republicação Atualizada}
+ 	{(1..n) Republicação Atualizada (1..n)
+ 	 \mypar 
+ 	 [ data, edição, \{pagina, coluna\} inicial e final ]}
+ 	{REPUBLICAÇÃO COM ATUALIZAÇÃO DE (1..1)}
+ 	{Documento da Publicação Oficial (seção, edição extra, suplemento)}
+ 	{D: ( Republicado com atualização no <doc>, em <data>, na p. <pagInicial>[-<pagFinal>])}
+ 	
+ \relacionamento
+ 	{Versão da Norma Jurídica}
+ 	{RETIFICADO (1..1)}
+ 	{Retificação}
+ 	{(1..n) Retificação (1..n)
+ 	 \mypar 
+ 	 [ data, edição, \{pagina, coluna\} inicial e final ]}
+ 	{RETIFICADOR (1..1)}
+ 	{Documento da Publicação Oficial (seção, edição extra, suplemento)}
+ 	{D: ( Retificado no <doc>, em <data>, na p. <pagInicial>[-<pagFinal>])}
+
+\end{tabelarelacionamento}
+
+% --
+\begin{tabelarelacionamento}{Relacionamentos
+de  Modificação}{tab-relacionamento-modificacao}
+
+ \relacionamento
+ 	{Dispositivo de norma jurídica}
+ 	{ALTERADO (1..1)}
+ 	{Alteração Expressa de Dispositivo}
+ 	{(1..n) Alteração Expressa de Dispositivo (1..n) 
+ 	 \mypar 
+ 	 [ Tipo: NR, AC + NR ( monovigente) ]}
+ 	{Alterador (1..1)}
+ 	{Versão de Dispositivo de Norma Jurídica}
+ 	{D: (Redação dada pela <ref>)
+ 	 \mypar
+ 	 D: (Acrescido pela <refSemVigencia> e alterado pela <ref>)}
+ 	  	 
+ \relacionamento
+ 	{Dispositivo de norma jurídica}
+ 	{ALTERADO (1..1)}
+ 	{Alteração Expressa de Expressão}
+ 	{(1..n) Alteração Expressa de Expressão (1..n) 
+ 	 \mypar 
+ 	 [ Tipo: NR ]}
+ 	{Alterador (1..1)}
+ 	{Versão de Dispositivo de norma jurídica}
+ 	{D: (Expressão <exp> alterada <ref>)}
+
+ \relacionamento
+ 	{Dispositivo de norma jurídica}
+ 	{ALTERADO (1..1)}
+ 	{Supressão de Expressão}
+ 	{(1..n) Supressão de Expressão (1..n) 
+ 	 \mypar 
+ 	 [ Tipo: NR ]}
+ 	{Alterador (1..1)}
+ 	{Versão de Dispositivo de norma jurídica}
+ 	{D: (Expressão <exp> suprimida pela <ref>)}
+
+ \relacionamento
+ 	{Dispositivo de norma jurídica}
+ 	{ACRESCIDO (1..1)}
+ 	{Acréscimo de Dispositivo}
+ 	{(1..n) Acréscimo de Dispositivo (1..n) 
+ 	 \mypar 
+ 	 [ Tipo: AC ]}
+ 	{ACRESCENTADOR (1..1)}
+ 	{Versão de Dispositivo de norma jurídica}
+ 	{D: (Acrescido pela <ref>)}
+
+ \relacionamento
+ 	{Dispositivo de norma jurídica}
+ 	{ACRESCIDO (1..1)}
+ 	{Acréscimo de Expressão}
+ 	{(1..n) Acréscimo de Expressão (1..n) 
+ 	 \mypar 
+ 	 [ Tipo: AC ]}
+ 	{ACRESCENTADOR (1..1)}
+ 	{Versão de Dispositivo de norma jurídica}
+ 	{D: (Expressão <exp> acrescida pela <ref>)}
+
+ \relacionamento
+ 	{Dispositivo de norma jurídica}
+ 	{RENUMERADO (1..1)}
+ 	{Renumeração}
+ 	{(1..n) Renumeração (1..n)}
+ 	{RENUMERADOR (1..1)}
+ 	{Versão de Dispositivo de norma jurídica}
+ 	{D: (Renumerado por <ref>)}
+
+ \relacionamento
+ 	{Dispositivo de norma jurídica}
+ 	{RESTABELECIDO (1..1)}
+ 	{Restabelecimento de Dispositivo}
+ 	{(1..n) Restabelecimento de Dispositivo (1..n)}
+ 	{RESTABELECEDOR (1..1)}
+ 	{Versão de Dispositivo de norma jurídica}
+ 	{D: (Restabelecido por <ref>)}
+
+ \relacionamento
+ 	{Dispositivo de norma jurídica}
+ 	{SUPRIMIDO (1..1)}
+ 	{Supressão de Dispositivo}
+ 	{(1..n) Supressão de Dispositivo (1..n)}
+ 	{SUPRESSOR (1..1)}
+ 	{Versão de Dispositivo de norma jurídica}
+ 	{D: (Suprimido por <refAtoRejeicao>, <refLeiConversao> ou <refAtoDeclaratorio>)}
+ 	
+\end{tabelarelacionamento}
+
+% --
+\begin{tabelarelacionamento}{Relacionamentos
+de Vigência}{tab-relacionamento-vigencia}
+
+  \relacionamento
+  	{Norma jurídica}
+ 	{PEREMPTA (1..1)}
+ 	{Declaração de Perempção de Concessão ou Permissão}
+ 	{(1..n) Declaração de Perempção de Concessão ou Permissão (1..n)}
+ 	{DECLARA PEREMPTA (1..1)}
+ 	{Versão de Dispositivo de norma jurídica}
+ 	{D: (Declarada perempta em dd.mm.aaaa, de acordo com o <refDisp> )}
+
+  \relacionamento
+  	{Norma jurídica}
+ 	{VIGÊNCIA PRORROGADA POR PRAZO DETERMINADO (1..1)}
+ 	{Prorrogação de Vigência por prazo determinado}
+ 	{(1..n) Prorrogação de Vigência por prazo determinado (1.. n)
+ 	 \mypar
+ 	 [ DataInicio, DataFim ]}
+ 	{PRORROGA VIGÊNCIA POR PRAZO DETERMINADO  (1..1)}
+ 	{Versão de Dispositivo de norma jurídica}
+ 	{D: (Vigência prorrogada de \{dataInicio\} até \{dataFim\}. Ver: <ref>)}
+
+  \relacionamento
+  	{Norma jurídica}
+ 	{VIGÊNCIA PRORROGADA POR PRAZO INDETERMINADO (1..1)}
+ 	{Prorrogação de Vigência por prazo indeterminado}
+ 	{(1..n) Prorrogação de Vigência por prazo indeterminado (1.. n)
+ 	 \mypar
+ 	 [ DataInicio ]}
+ 	{PRORROGA VIGÊNCIA POR PRAZO INDETERMINADO (1..1)}
+ 	{Versão de Dispositivo de norma jurídica}
+ 	{D: (Vigência prorrogada a partir de \{dataInicio\}. Ver: <ref>)}
+
+  \relacionamento
+  	{Norma jurídica}
+ 	{REPRISTINADO (1..1)}
+ 	{Repristinação Expressa}
+ 	{(1..1) Repristinação Expressa (1..n)
+ 	 \mypar
+ 	 \{ <trib>, <ref>, <pub> \}}
+ 	{REPRISTINADOR (1..1)}
+ 	{Acórdão em Controle Concentrado de Constitucionalidade; Norma Jurídica}
+ 	{D: (Repristinação de dispositivo por Declaração de Inconstitucionalidade pelo <trib>, <ref>,  publicado no <pub>)}
+
+  \relacionamento
+  	{Dispositivo de norma jurídica}
+ 	{RESTAURADO (1..1)}
+ 	{Restauração de Dispositivo}
+ 	{(1..n) Restauração de Dispositivo (1..n)}
+ 	{RESTAURADOR (1..1)}
+ 	{Versão de Dispositivo de norma jurídica }
+ 	{D: (Restaurado por <refAtoRejeicao>, <refLeiConversao> ou <refAtoDeclaratorio>)}
+
+  \relacionamento
+  	{Norma Jurídica}
+ 	{REVIGORADO (1..1)}
+ 	{Revigoração}
+ 	{(1..n) Revigoração (1..n)}
+ 	{REVIGORADOR (1..1)}
+ 	{Versão de Dispositivo de Norma Jurídica}
+ 	{D: (Revigorado por <ref>)}
+
+  \relacionamento
+  	{Norma Jurídica}
+ 	{REVOGADO (1..1)}
+ 	{Revogação}
+ 	{(1..n) Revogação (1..n)}
+ 	{REVOGADOR (1..1)}
+ 	{Versão de Dispositivo de Norma Jurídica}
+ 	{D: (Revogado por <ref>)}
+
+  \relacionamento
+  	{Norma Jurídica}
+ 	{REVOGADO (1..1)}
+ 	{Revogação Condicionada}
+ 	{(1..n) Revogação Condicionada (1..n)
+ 	 \mypar
+ 	 \{ evento determinante \}}
+ 	{REVOGADOR (1..1)}
+ 	{Versão de Dispositivo de Norma Jurídica}
+ 	{D: (Revogado por <ref>)}
+
+  \relacionamento
+  	{Norma Jurídica}
+ 	{REVOGADO (1..1)}
+ 	{Revogação Parcial}
+ 	{(1..n) Revogação Parcial (1..n)
+ 	 \mypar
+ 	 [ RELACIONAMENTO DERIVADO de Revogação, Revogação com Ressalva, Revogação da Norma Integral com ressalva ]}
+ 	{REVOGADOR (1..1)}
+ 	{Norma Jurídica}
+ 	{D: (Revogado por <ref>)}
+
+  \relacionamento
+  	{Norma Jurídica}
+ 	{REVOGADO (1..1)}
+ 	{Revogação com Ressalva}
+ 	{(1..n) Revogação com Ressalva (1..n)}
+ 	{REVOGADOR (1..1)}
+ 	{Versão de Dispositivo de Norma Jurídica}
+ 	{D: (Revogado com ressalva por <ref>)}
+
+  \relacionamento
+  	{Norma Jurídica}
+ 	{REVOGADO (1..1)}
+ 	{Revogação da Norma Integral com Ressalva}
+ 	{(1..n) Revogação da Norma Integral com Ressalva (1..n)}
+ 	{REVOGADOR (1..1)}
+ 	{Versão de Dispositivo de Norma Jurídica}
+ 	{D: (Revogado com ressalva por <ref>}
+
+\end{tabelarelacionamento}
+
+
+% --
+\begin{tabelarelacionamento}{Relacionamentos
+de Eficácia}{tab-relacionamento-eficacia}
+
+  \relacionamento
+  	{Norma jurídica}
+ 	{CADUCA (1..1)}
+ 	{Declaração de Caducidade}
+ 	{(1..n) Declaração de Caducidade (1..n)}
+ 	{DECLARA CADUCO  (1..1)}
+ 	{Versão de Dispositivo de norma jurídica}
+ 	{D: (Declarada caduca em dd.mm.aaaa, de acordo com o <refDisp> )}
+
+  \relacionamento
+  	{Norma jurídica}
+ 	{EFICAZ (1..1)}
+ 	{Declaração de Eficácia Expressa}
+ 	{(1..n) Declaração de Eficácia Expressa (1..n)}
+ 	{DECLARA EFICAZ  (1..1)}
+ 	{Versão de Dispositivo de norma jurídica}
+ 	{D: (Declaro eficaz a partir de dd.mm.aaaa, de acordo com o <refDisp> )}
+ 	
+  \relacionamento
+  	{Norma jurídica}
+ 	{SUSPENSO (1..1)}
+ 	{Suspensão de Efeitos}
+ 	{(1..n) Suspensão de Efeitos (1..n)}
+ 	{NORMA SUSPENSORA (1..1)}
+ 	{Versão de Dispositivo de norma jurídica}
+ 	{(Suspensão de efeitos pela <ref>)}
+ 	
+  \relacionamento
+  	{Norma jurídica}
+ 	{RESTABELECIDO (1..1)}
+ 	{Restabelecimento de Efeitos}
+ 	{(1..n) Restabelecimento de Efeitos (1..n)}
+ 	{RESTABELECEDOR (1..1)}
+ 	{Versão de Dispositivo de norma jurídica}
+ 	{(Restabelecimento de efeitos pela <ref>)}
+ 	
+  \relacionamento
+  	{Norma jurídica}
+ 	{SUSPENSA (1..1)}
+ 	{Suspensão de Eficácia}
+ 	{(1..n) Suspensão de Eficácia (1..1)
+	 \mypar
+	 (<orgao>) <disp><ref>, <pub>}
+ 	{NORMA SUSPENSORA (1..1)}
+ 	{Resolução do SF; Resolução de Assembleia Legislativa; Resolução de Câmara Distrital; Liminar em Sede de ADIN}
+ 	{D: (Execução suspensa por  órgão na forma do <disp>, <ref>, <pub>)}
+ 	
+  \relacionamento
+  	{Norma jurídica}
+ 	{RESTABELECIDO (1..1)}
+ 	{Restabelecimento de Eficácia}
+ 	{(1..n) Restabelecimento de Eficácia (1..1)}
+ 	{RESTABELECEDOR (1..1)}
+ 	{Resolução do SF; Resolução de Assembleia Legislativa; Resolução de Câmara Distrital; Decisão em Sede de ADIN}
+ 	{D: (Eficácia restabelecida pela  <ref>)}
+ 	
+  \relacionamento
+  	{Norma jurídica}
+ 	{SEM EFEITO (1..1)}
+ 	{Tornar sem efeito (com sentido de retirada de eficácia)}
+ 	{(1..n) Tornar sem efeito (com sentido de retirada de eficácia) (1..1)}
+ 	{RETIRADA DE EFEITO (1..1)}
+ 	{Versão de Dispositivo de Norma Jurídica}
+ 	{D: (Eficácia restabelecida pela  <ref>)}
+ 	
+\end{tabelarelacionamento}
+
+% --
+\begin{tabelarelacionamento}{Relacionamentos
+de Períodos de Vacatio, Vigência e Eficácia}{tab-relacionamento-vacatio}
+
+  \relacionamento
+  	{Norma jurídica}
+ 	{PERDEU A EFICÁCIA (1..1)}
+ 	{Fim de Eficácia Expressa}
+ 	{(1..n) Fim de Eficácia Expressa (1..n)
+ 	 \mypar
+ 	 \{decurso de prazo\}}
+ 	{RETIROU A EFICÁCIA (1..1)}
+ 	{Versão de Dispositivo de norma jurídica}
+ 	{D: (Fim de Eficácia em dd.mm.aaaa, de acordo com o <refDisp> )}
+
+  \relacionamento
+  	{Norma jurídica}
+ 	{ENCERRA A VACATIO (1..1)}
+ 	{Fim de Vacatio Legis}
+ 	{(1..n) Fim de Vacatio Legis (1..n)
+ 	 \mypar
+ 	 \{decurso de prazo\}}
+ 	{DETERMINA VACATIO (1..1)}
+ 	{Versão de Dispositivo de norma jurídica}
+ 	{D: (Fim de vacatio legis em dd.mm.aaaa, de acordo com o <refDisp> )}
+
+
+  \relacionamento
+  	{Norma jurídica}
+ 	{PERDEU A VIGÊNCIA (1..1)}
+ 	{Fim de Vigência}
+ 	{(1..n) Fim de Vigência (1..n)}
+ 	{RETIROU A VIGÊNCIA (1..1)}
+ 	{Versão de Dispositivo de norma jurídica}
+ 	{D: (Fim de Vigência em dd.mm.aaaa, de acordo com o <refDisp> )}
+
+  \relacionamento
+  	{Norma jurídica}
+ 	{INICIA A EFICÁCIA (1..1)}
+ 	{Início de Eficácia Expressa}
+ 	{(1..n) Início de Eficácia Expressa (1..n)}
+ 	{ESTABELECE EFICÁCIA (1..1)}
+ 	{Versão de Dispositivo de norma jurídica}
+ 	{D: (Início de Eficácia em dd.mm.aaaa, de acordo com o <refDisp> )}
+
+  \relacionamento
+  	{Norma jurídica}
+ 	{INICIA A VACATIO (1..1)}	
+ 	{Início de Vacatio Legis}
+ 	{(1..n) Início de Vacatio Legis (1..n)}
+ 	{DETERMINA VACATIO (1..1)}
+ 	{Versão de Dispositivo de norma jurídica}
+ 	{D: (Início de vacatio legis em dd.mm.aaaa, de acordo com o <refDisp> )}
+
+  \relacionamento
+  	{Norma jurídica}
+ 	{INICIA A VIGÊNCIA (1..1)}
+ 	{Início de Vigência}
+ 	{(1..n) Início de Vigência (1..n)}
+ 	{ESTABELECE VIGÊNCIA (1..1)}
+ 	{Versão de Dispositivo de norma jurídica}
+ 	{D: (Início de Vigência em dd.mm.aaaa, de acordo com o <refDisp> )}
+\end{tabelarelacionamento}
+
+
+% --
+\begin{tabelarelacionamento}{Relacionamentos
+de Veto}{tab-relacionamento-veto}
+
+  \relacionamento
+  	{Parte de Dispositivo de Proposição Legislativa}
+ 	{VETADO (1..1)}
+ 	{Veto de Expressão}
+ 	{(1..1) Veto de Expressão (1..n)}
+ 	{ATO DO VETO}
+ 	{Mensagem do Poder Executivo}
+ 	{D: (Vetado por <ref>)}
+
+  \relacionamento
+  	{Dispositivo de Proposição Legislativa}
+ 	{VETADO (1..1)}
+ 	{Veto Parcial}
+ 	{(1..1) Veto Parcial (1..n)}
+ 	{ATO DO VETO}
+ 	{Mensagem do Poder Executivo}
+ 	{D: (Vetado por <ref>)}
+ 	
+  \relacionamento
+  	{Proposição Legislativa}
+ 	{VETADA (1..1)}
+ 	{Veto Total}
+ 	{(1..1) Veto Total (1..1)}
+ 	{ATO DO VETO}
+ 	{Mensagem do Poder Executivo}
+ 	{D: (Vetado por <ref>)}
+ 	
+\end{tabelarelacionamento} 	
+
+
+% --
+\begin{tabelarelacionamento}{Relacionamentos
+de Anotações}{tab-relacionamento-anotacoes}
+
+  \relacionamento
+  	{Entidade}
+ 	{DESTINATÁRIA (1..1)}
+ 	{Alerta}
+ 	{(1..n) Alerta ( 1..n)}
+ 	{ORIGINÁRIA (1..1)}
+ 	{Entidade}
+ 	{D: (Alerta:  <texto >)}
+
+  \relacionamento
+  	{Entidade}
+ 	{CORRELATA A (1..1)}
+ 	{Correlação}
+ 	{(1..n) Correlação (1..n)
+	 \mypar
+	 \{ simétrica , não transitiva\}}
+ 	{CORRELATA A (1..1)}
+ 	{Entidade}
+ 	{D/I: ( Vide: <ref> )}
+
+  \relacionamento
+  	{Norma Jurídica}
+ 	{POSSUI NOVO TRATAMENTO (1..1)}
+ 	{Novo Tratamento da Matéria}
+ 	{(1..n) Novo Tratamento da Matéria (1..n)}
+ 	{DÁ NOVO TRATAMENTO (1..1)}
+ 	{Versão de Norma Jurídica}
+ 	{D: (Novo tratamento da matéria por <ref> )
+	 \mypar
+	 I: (Ver também: <ref>)}
+
+  \relacionamento
+  	{Norma Jurídica}
+ 	{REGULAMENTADO (1..1)}
+ 	{Regulamentação}
+ 	{(1..n) Regulamentação (1..n)}
+ 	{REGULAMENTADOR (1..1)}
+ 	{Versão de Norma Jurídica}
+ 	{D: (Regulamentado por <ref>)
+	 \mypar
+	 I: (Regulamenta <ref> )}
+
+  \relacionamento
+  	{Norma Jurídica}
+ 	{RESSALVADA  (1..1)}
+ 	{Ressalva de Aplicação}
+ 	{(1..n) Ressalva de Aplicação  (1..n)}
+ 	{RESSALVA (1..1)}
+ 	{Versão de Dispositivo de Norma Jurídica}
+ 	{D: ( Ressalva de Aplicação conforme <ref> )}
+\end{tabelarelacionamento}
+
+
+% --
+\begin{tabelarelacionamento}{Relacionamentos
+de Validade/Nulidade}{tab-relacionamento-validade}
+
+  \relacionamento
+  	{Ato Administrativo}
+ 	{ANULADO (1..1)}
+ 	{Anulação}
+ 	{(1..1) Anulação (1..n)}
+ 	{ANULADOR (1..1)}
+ 	{Versão de Norma Jurídica; Acórdão; Ato Administrativo}
+ 	{D: (Anulado por <ref> )}
+ 	
+  \relacionamento
+  	{Entidade com Vigência}
+ 	{CONVALIDADA (1..1)}
+ 	{Convalidação}
+ 	{(1..1) Convalidação (1..n)}
+ 	{CONVALIDANTE (1..1)}
+ 	{Entidade com Vigência}
+ 	{D: (Convalidado por <ref> )}
+ 	
+  \relacionamento
+  	{Norma Jurídica; Parte do Dispositivo de Norma Jurídica}
+ 	{DECLARADA INCONSTITUCIONAL (1..1)}
+ 	{Declaração de Inconstitucionalidade}
+ 	{(1..1) Declaração de Inconstitucionalidade (1..n)
+	 \mypar
+	 \{ <trib>, <ref>, <pub> \}}
+ 	{DECLARA INCONSTITUCIONAL (1..1)}
+ 	{Acórdão em Controle Concentrado de Constitucionalidade}
+ 	{D: (Declarado Inconstitucional pelo <trib>, <ref>,  publicado no <pub>)}
+ 	
+  \relacionamento
+  	{Norma Jurídica}
+ 	{DECLARADA NÃO RECEPCIONADA (1..1)}
+ 	{Declaração de não recepção}
+ 	{(1..1) Declaração de não recepção (1..n)
+	 \mypar
+	 \{ <esfera> <ano> <trib>, <ref>, <pub> \} }
+ 	{DECLARA NÃO RECEPCIONADA (1..1)}
+ 	{Acórdão em Controle Concentrado de Constitucionalidade}
+ 	{D: (Declarado não recepcionado pela Constituição <esfera> <ano> em controle concentrado pelo <trib>, <ref>, publicado no <pub>)}
+ 	
+\end{tabelarelacionamento}
+
+% --
+\begin{tabelarelacionamento}{Relacionamentos
+de Interpretação}{tab-relacionamento-interpretacao}
+
+  \relacionamento
+  	{Norma Jurídica}
+ 	{INTERPRETADO (1..1)}
+ 	{Interpretação de ato normativo}
+ 	{(1..n) Interpretação de ato normativo (1..n)}
+ 	{INTERPRETADOR (1..1)}
+ 	{Versão da Norma Jurídica}
+ 	{D: (Interpretação conforme o <ref> )}
+
+  \relacionamento
+  	{Norma Jurídica}
+ 	{INTERPRETADO CONFORME A CONSTITUIÇÃO (1..1)}
+ 	{Interpretação conforme a Constituição}
+ 	{(1..n) Interpretação conforme a Constituição (1..n)}
+ 	{INTERPRETADOR (1..1)}
+ 	{Acórdão}
+ 	{D: (Interpretação conforme a Constituição pelo <ref>. [ Ementa da Decisão ] )}
+
+\end{tabelarelacionamento}
+
+
+% --
+\begin{tabelarelacionamento}{Relacionamentos
+de Medidas Provisórias/Decreto-Lei}{tab-relacionamento-medidas-provisorias}
+
+  \relacionamento
+  	{Medida Provisória (como Versão de Norma Jurídica)}
+ 	{CONVERTIDA COM ALTERAÇÃO (1..1)}
+ 	{Conversão com Alteração}
+ 	{(1..1) Conversão com Alteração (1..1)}
+ 	{ORIGINÁRIA DA (1..1)}
+ 	{Lei (como Versão de Norma Jurídica)}
+ 	{D: (Convertida com alteração na <ref> )
+	 \mypar
+	 I: (Conversão com alteração da <ref>)}
+
+  \relacionamento
+  	{Decreto-Lei (como Versão de Norma Jurídica)}
+ 	{CONVERTIDO (1..1)}
+ 	{Conversão de Decreto-Lei em Medida-Provisória}
+ 	{(1..1) Conversão de Decreto-Lei em Medida-Provisória (1..1)}
+ 	{ORIGINÁRIA DO (1..1)}
+ 	{Medida Provisória (como Versão de Norma Jurídica)}
+ 	{D: (Convertido na <ref> )
+	 \mypar
+	 I: (Originária do <ref>)}
+
+  \relacionamento
+  	{Medida Provisória (como Versão de Norma Jurídica)}
+ 	{CONVERTIDA SEM ALTERAÇÃO (1..1)}
+ 	{Conversão sem Alteração}
+ 	{(1..1) Conversão sem Alteração (1..1)}
+ 	{ORIGINÁRIA DA (1..1)}
+ 	{Lei  (como Versão de Norma Jurídica)}
+ 	{D: (Convertida sem alteração na <ref> )
+	 \mypar
+	 I: (Conversão sem alteração da <ref>)}
+
+  \relacionamento
+  	{Medida Provisória (como Norma Jurídica)}
+ 	{DECLARADA INSUBSISTENTE (1..1)}
+ 	{Declaração de Insubsistência de MP}
+ 	{(1..1) Declaração de Insubsistência de MP (1..n)}
+ 	{DECLARA INSUBSISTENTE (1..1)}
+ 	{Resolução do CN (como Norma Jurídica)}
+ 	{D: (Declarado Insubsistente pela <ref> )}
+
+  \relacionamento
+  	{Medida Provisória (como Norma Jurídica)}
+ 	{DECLARADA PREJUDICADA (1..1)}
+ 	{Declaração de Prejudicialidade de Medida Provisória}
+ 	{(1..1) Declaração de Prejudicialidade de Medida Provisória (1..n)}
+ 	{DECLARA PREJUDICADA (1..1)}
+ 	{Ato (como Norma Jurídica)}
+ 	{D: (Declarada Prejudicada pela <ref> )}
+
+  \relacionamento
+  	{Medida Provisória (como Norma Jurídica)}
+ 	{DISCIPLINADA (1..1)}
+    {Disciplinamento de Relações Jurídicas Decorrentes de Medidas Provisórias Rejeitadas ou Declaradas Insubsistentes} 
+    {(1..1) Disciplinamento de Relações Jurídicas Decorrentes de Medidas Provisórias Rejeitadas ou Declaradas Insubsistentes (1..n)}
+ 	{DISCIPLINA (1..1)}
+ 	{Decreto Legislativo (como Norma Jurídica)}
+ 	{D: (Relações jurídicas disciplinadas  por <ref>)
+	 \mypar
+	 I: (Disciplina as relações jurídicas de <ref>)}
+
+  \relacionamento
+  	{Medida Provisória (como Versão de Norma Jurídica)}
+ 	{REEDITADA SEM ALTERAÇÃO  (1..1)}
+ 	{Reedição Subseqüente sem Alteração}
+ 	{(1..1) Reedição Subseqüente sem Alteração (1..1)}
+ 	{REEDIÇÃO SEM ALTERAÇÃO  DE  (1..1)}
+ 	{Medida Provisória (como Versão de Norma Jurídica)}
+ 	{D: (Reeditada sem alteração: <ref> )
+	 \mypar
+	 I: (Reedição sem alteração da <ref>)}
+
+  \relacionamento
+  	{Medida Provisória (como Versão de Norma Jurídica)}
+ 	{REEDITADA COM ALTERAÇÃO (1..1)}
+ 	{Reedição Subseqüente com Alteração}
+ 	{(1..1) Reedição Subseqüente com Alteração (1..1)}
+ 	{REEDIÇÃO COM ALTERAÇÃO DE  (1..1)}
+ 	{Medida Provisória (como Versão de Norma Jurídica)}
+ 	{D: (Reeditada com alteração: <ref> )
+	 \mypar
+	 I: (Reedição com alteração da <ref>)}
+
+  \relacionamento
+  	{Medida Provisória (como Versão de Norma Jurídica)}
+ 	{RELACIONADA A (1..1)}
+ 	{Regulamentação de Relações Jurídicas Regidas por Medida Provisória não Convertida em Lei}
+ 	{Regulamentação de Relações Jurídicas Regidas por Medida Provisória não Convertida em Lei}
+ 	{EDIÇÃO DE (1..1)}
+ 	{Decreto Legislativo (como Versão de Norma Jurídica)}
+ 	{D: (Relações jurídicas regulamentadas por <ref>)
+	 \mypar
+	 I: (Regulamenta as relações jurídicas de <ref>)}
+
+  \relacionamento
+  	{Decreto-Lei (como Norma Jurídica)}
+ 	{REJEITADO (1..1)}
+ 	{Rejeição de Decreto-Lei}
+ 	{(1..1) Rejeição de Decreto-Lei (1..1)}
+ 	{REJEITA (1..1)}
+ 	{Decreto Legislativo (como Norma Jurídica)}
+ 	{D: (Rejeitado pela <ref>)}
+
+  \relacionamento
+  	{Medida Provisória (como Norma Jurídica)}
+ 	{REJEITADA (1..1)}
+ 	{Rejeição de Medida Provisória}
+ 	{(1..1) Rejeição de Medida Provisória (1..1)}
+ 	{REJEITA (1..1)}
+ 	{Ato Declaratório do CN, do SF ou da CD (como Norma Jurídica)}
+ 	{D: (Rejeitada pela <ref>)}
+
+\end{tabelarelacionamento}
+
+
+% --
+\begin{tabelarelacionamento}{Relacionamentos
+de Atos Internacionais}{tab-relacionamento-atos-internacionais}
+
+  \relacionamento
+  	{Ato Internacional (Norma Jurídica)}
+ 	{APROVADO (1..1)}
+ 	{Aprovação de Ato Internacional}
+ 	{(1..n) Aprovação de Ato Internacional (1.. n)}
+ 	{APROVADOR (1..1)}
+ 	{Decreto Legislativo}
+ 	{D: (Aprovado por <ref> )}
+
+  \relacionamento
+  	{Ato Internacional (Norma Jurídica)}
+ 	{PROMULGADO (1..1)}
+ 	{Promulgação de Ato Internacional}
+ 	{(1..n) Promulgação de Ato Internacional (1.. n)}
+ 	{PROMULGADOR (1..1)}
+ 	{Decreto}
+ 	{D: (Promulgado por <ref>)}
+
+\end{tabelarelacionamento}

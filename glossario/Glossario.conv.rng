@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar ns="" xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <start>
+    <element name="glossario">
+      <oneOrMore>
+        <element name="entrada">
+          <attribute name="id">
+            <data type="NCName"/>
+          </attribute>
+          <element name="singular">
+            <text/>
+          </element>
+          <optional>
+            <element name="acronimo">
+              <text/>
+            </element>
+          </optional>
+          <element name="definicao">
+            <text/>
+          </element>
+          <optional>
+            <element name="ver">
+              <attribute name="refid">
+                <data type="NCName"/>
+              </attribute>
+            </element>
+          </optional>
+          <optional>
+            <element name="especificoDe">
+              <attribute name="refid">
+                <data type="NCName"/>
+              </attribute>
+            </element>
+          </optional>
+          <optional>
+            <element name="verTambem">
+              <attribute name="refids"/>
+            </element>
+          </optional>
+          <optional>
+            <choice>
+              <element name="exemplo">
+                <text/>
+              </element>
+              <element name="nota">
+                <text/>
+              </element>
+              <element name="refLeg">
+                <text/>
+              </element>
+            </choice>
+          </optional>
+        </element>
+      </oneOrMore>
+    </element>
+  </start>
+</grammar>

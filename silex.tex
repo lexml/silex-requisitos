@@ -1,0 +1,1687 @@
+%% Copyright 2012-2013 by abnTeX2 group at http://abntex2.googlecode.com/ 
+%%
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% abnTeX2: Modelo de Projeto de pesquisa em conformidade com 
+% ABNT NBR 15287:2011 Informação e documentação - Projeto de pesquisa -
+% Apresentação 
+% ------------------------------------------------------------------------ 
+% ------------------------------------------------------------------------
+
+% verso e anverso:
+\documentclass[a4paper,11pt,openright,twoside,english,brazil]{abntex2} 
+ 
+% ---
+% PACOTES
+% ---
+
+% ---
+% Pacotes fundamentais 
+% ---
+\usepackage{cmap}        % Mapear caracteres especiais no PDF
+\usepackage{lmodern}      % Usa a fonte Latin Modern
+\usepackage[T1]{fontenc}    % Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}    % Codificacao do documento (conversão automática dos acentos)
+\usepackage{indentfirst}    % Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}        % Controle das cores
+\usepackage{graphicx}      % Inclusão de gráficos
+\usepackage{amssymb}      % Simbolos matematicos
+\usepackage{lastpage}		% Obtem a última página
+\usepackage{multicol}	% Múltiplas colunas
+
+% ---
+% Pacotes glossaries
+% ---
+\usepackage[xindy={language=portuguese},nonumberlist=true]{glossaries}
+% ---
+
+% ---
+% Tabelas 
+% ---
+\usepackage{multirow}            % Tabelas com colunas com multiplas linhas
+\usepackage{longtable}            % Quebra de paginas em tabelas
+\usepackage{threeparttablex}          % notas no longtable
+% ---
+
+% ---
+% Pacotes de citações
+% ---
+\usepackage[brazilian,hyperpageref]{backref}   % Paginas com as citações na bibl
+\usepackage[alf,abnt-repeated-author-omit=yes]{abntex2cite}  % Citações padrão ABNT
+
+% ---
+% Pacote de comandos criados para este documento
+% ---
+%\usepackage{silex-defs}
+\usepackage{silex-defs-html}
+% ---
+
+% --- 
+% CONFIGURAÇÕES DE DOCUMENTO FINAL
+% --- 
+
+%% PARA IMPRESSÃO:
+% \usepackage{lscape}      		% Produce landscape pages in a (mainly) portrait
+% \graphicspath{{imagens/}}		% imagens preto e branco
+% \definecolor{blue}{RGB}{0,0,0}	% Cor preta nos links internos
+
+% PARA VISUALIZAÇÃO EM TELA:
+\usepackage{pdflscape}      	% Produce landscape pages in a (mainly) portrait
+\graphicspath{{imagens/color/}}	% imagens coloridas
+\definecolor{blue}{RGB}{41,5,195}	% Cor azul nos links internos
+% ---
+
+% --- 
+% CONFIGURAÇÕES DE PACOTES
+% --- 
+
+% ---
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+  \ifcase #1 %
+    Nenhuma citação no texto.%
+  \or
+    Citado na página #2.%
+  \else
+    Citado #1 vezes nas páginas #2.%
+  \fi}%
+% ---
+
+% ---
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% ---
+\titulo{Modelo de Requisitos para \\ Sistemas Informatizados de Gestão da \\ 
+Informação Jurídica}
+\autor{Grupo de Trabalho SILEX}
+\local{%Brasil}
+\includegraphics[scale=0.5]{imagens/Senado-Vertical.pdf}} 
+%\includegraphics[scale=0.4]{imagens/Variante-Horizontal1.pdf}}
+
+
+\data{2013}
+\instituicao{%
+  Comitê Gestor de Informação do Portal LexML
+  \par
+  CGLEXML}
+\tipotrabalho{Modelo de requisitos}
+% O preambulo deve conter o tipo do trabalho, o objetivo, 
+% o nome da instituição e a área de concentração 
+\preambulo{Modelo de Requisitos para Sistemas Informatizados de Gestão da Informação
+Jurídica,
+ elaborado no âmbito do Comitê Gestor de Informação do Portal LexML (CGLEXML).}
+
+
+% ---
+
+% ---
+% Configurações de aparência do PDF final
+
+
+% informações do PDF
+\makeatletter
+\hypersetup{
+    %pagebackref=true,
+    pdftitle={\@title}, 
+    pdfauthor={\@author},
+    pdfsubject={\imprimirpreambulo},
+    pdfcreator={LaTeX with abnTeX2},
+    pdfkeywords={silex}{informação jurídica}, 
+    colorlinks=true,           % false: boxed links; true: colored links
+    linkcolor=blue,            % color of internal links
+    citecolor=blue,            % color of links to bibliography
+    filecolor=magenta,          % color of file links
+    urlcolor=blue,
+    bookmarksdepth=4
+}
+\makeatother
+% --- 
+
+% --- 
+% Espaçamentos entre linhas e parágrafos 
+% --- 
+
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.3cm}
+
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+% ---
+% Altera o tamanho do papel
+% ---
+% \setstocksize{23.cm}{17.5cm}
+% \settrimmedsize{0.9\stockheight}{0.9\stockwidth}{*}
+% \checkandfixthelayout
+
+%\usepackage[paperwidth=17.5cm, paperheight=23cm]{geometry}
+% --- 
+  
+% ---
+% compila o indice
+% ---
+\makeindex
+% ---
+
+% ---
+% GLOSSARIO
+% ---
+\makeglossaries
+\include{glossario/glossario}
+
+% ---
+% Exemplo de configurações do glossairo
+\renewcommand*{\glsseeformat}[3][\seename]{\textit{#1}  
+ \glsseelist{#2}}
+% ---
+
+% Correção temporária: para uso com abntex2 <= 1.6.1
+\renewcommand{\chapterheadstart}{}
+
+% ----
+% Início do documento
+% ----
+\begin{document}
+
+% ---
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing 
+% ---
+
+% ---
+% Altera o estilo de capítulo
+%\chapterstyle{bianchi}
+%\chapterstyle{southall}
+\chapterstyle{madsen}
+% ---
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+% \pretextual
+
+% ---
+% Capa
+% ---
+\imprimircapa
+% ---
+
+% ---
+% Folha de rosto
+% ---
+\imprimirfolhaderosto*
+% ---
+
+% ---
+% Anverso da folha de rosto:
+% ---
+\vspace*{\fill}
+{
+\setlength{\parindent}{0cm}
+
+\ABNTEXchapterfont
+
+\textbf{Integrantes do Grupo de Trabalho do SILEX} 
+
+Carlo Guimarães (Receita Federal) \\
+Clay Souza e Teles (Senado Federal/Prodasen) \\
+Edilenice Passos (Senado Federal/Secretaria de Informação e Documentação) \\
+Janete Miranda Torres (Advocacia Geral da União) \\
+João Alberto de Oliveira Lima (Senado Federal/Prodasen) \\
+José Ronaldo Vieira (Superior Tribunal de Justiça) - Coordenador do Grupo de
+Trabalho \\
+Julio Leite Cardoso (Banco Central do Brasil) \\
+Marilene Mendes Sow (Câmara dos Deputados/Centro de Documentação e Informação)
+\\
+Marisa Perrone Campos Rocha (Câmara Legislativa do Distrito Federal/Biblioteca)
+\\
+Rosa Paganine (Câmara dos Deputados/Centro de Documentação e Informação) \\
+Thiago Gomes Eirão (Câmara dos Deputados/Centro de Documentação e Informação) \\
+Tiago Alves Almeida (Senado Federal/Subsecretaria de Informações) \\
+
+\textbf{Colaboradores}
+
+Adriana dos Santos Santana Amorim (Superior Tribunal de Justiça) \\
+João Rafael Moraes Nicola (Senado Federal/Prodasen) \\
+Lauro César Araujo (Senado Federal/Prodasen) \\
+Marcos Fragomeni Padron (Senado Federal/Prodasen) \\
+
+\textbf{Licença deste documento}
+
+O conteúdo deste documento é de domínio público, não havendo restrições quanto à sua
+reprodução nem quanto à utilização das informações nele contidas. A reprodução pode ser feita
+em qualquer suporte, sem necessidade de autorização específica, desde que sejam mencionados
+os créditos ao Comitê Gestor de Informação do Portal LexML. 
+}
+\vspace*{\fill}
+
+
+% ---
+% Inserir a ficha bibliografica
+% ---
+
+\begin{fichacatalografica}\ABNTEXchapterfont
+\vspace*{\fill} % Posição vertical
+\hrule % Linha horizontal
+\begin{center} % Minipage Centralizado
+\begin{minipage}[c]{13cm} % Largura
+Comitê Gestor de Informação do Portal LexML (Brasil). \imprimirautor
+
+\hspace{0.5cm} Modelo de Requisitos para Sistemas Informatizados de Gestão 
+da Informação Jurídica / \imprimirautor. --
+Brasília, Brasil : Senado Federal, \imprimirdata-
+
+\hspace{0.5cm} \pageref{LastPage} p. : il. (algumas color.) ; 29,7 cm.\\
+
+\hspace{0.5cm}
+\parbox[t]{\textwidth}{\imprimirtipotrabalho~--~Comitê Gestor de Informação do 
+Portal LexML, \imprimirdata.}
+
+\hspace{0.5cm}
+\parbox[t]{\textwidth}{Versão disponibilizada para consulta pública.}\\
+
+\hspace{0.5cm}
+\parbox[t]{\textwidth}{ISBN: 978-85-7018-505-1}\\
+
+\hspace{0.5cm}
+1. Sistemas Informatizados.
+2. Gestão da Informação Jurídica.
+I. Título
+\begin{flushright}
+ CDD 025.04
+\end{flushright}
+\end{minipage}
+\end{center}
+\hrule
+\end{fichacatalografica}
+% ---
+
+\cleardoublepage
+
+% % ---
+% % Agradecimentos
+% % ---
+% \begin{agradecimentos}
+% O agradecimento\ldots
+% \end{agradecimentos}
+% % ---
+
+% ---
+% inserir lista de ilustrações
+% ---
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
+% ---
+
+% ---
+% inserir lista de tabelas
+% ---
+\pdfbookmark[0]{\listtablename}{lot}
+\listoftables*
+\cleardoublepage
+% ---
+
+% ---
+% inserir lista de abreviaturas e siglas
+% ---
+\begin{siglas}
+  \item[CELEG] Coordenação de Estudos Legislativos
+  \item[CGLEXML] Comitê Gestor de Informação do Portal LexML
+  \item[CIDOC] \emph{Comité Internacional pour la Documentation}
+  \item[CRM] \emph{Conceptual Reference Model} 
+  \item[FRBRoo] \emph{Functional Requirements for Bibliographic Records –
+  object-oriented}
+  \item[GT] Grupo de Trabalho
+  \item[LEGIN] Sistema de Legislação Informatizada
+  \item[SELEB] Seção de Legislação Brasileira
+  \item[SILEX] Modelo de Requisitos para Sistemas Informatizados de Gestão da 
+Informação Jurídica
+\end{siglas}
+% ---
+% 
+% % ---
+% % inserir lista de símbolos
+% % ---
+% \begin{simbolos}
+%   \item[$ \Gamma $] Letra grega Gama
+%   \item[$ \Lambda $] Lambda
+%   \item[$ \zeta $] Letra grega minúscula zeta
+%   \item[$ \in $] Pertence
+% \end{simbolos}
+% % ---
+
+% ---
+% inserir o sumario
+% ---
+
+\settocdepth{subsection}
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+% ---
+
+
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+\textual
+
+% Conta as páginas da primeira capa, uma vez que haverá uma capa adicional
+\addtocounter{page}{2}
+
+% ----------------------------------------------------------
+% \chapter*[Introdução]{Introdução}
+% \addcontentsline{toc}{chapter}{Introdução}
+\chapter{Introdução}
+% ----------------------------------------------------------
+
+Neste documento é apresentado o Modelo de Requisitos para Sistemas 
+Informatizados de Gestão da Informação Jurídica (SILEX), que foi elaborado no 
+âmbito do Comitê Gestor de Informação do
+Portal LexML (CGLEXML).
+
+O SILEX especifica requisitos de um sistema de gestão de informação jurídica,
+independentemente da plataforma tecnológica, com o objetivo principal de
+uniformizar os esforços de gestão da informação jurídica no País.
+Os princípios que norteiam o SILEX estão centrados na:
+
+\begin{alineas}
+
+ \item monotonicidade, isto é, a inclusão de novos dados não invalida as
+ instâncias anteriores;
+ 
+ \item não duplicidade da informação;
+ 
+ \item rastreabilidade das informações derivadas de programa ou alimentadas
+ manualmente;
+ 
+ \item completude dos dados, isto é, toda informação necessária para se atingir
+ os objetivos propostos tem de estar representada, na medida do possível, de
+ forma estruturada;
+ 
+ \item objetividade na análise das relações entre documentos normativos;
+ 
+ \item atualidade dos dados.
+ 
+\end{alineas}
+
+Em 1973, o Senado Federal iniciou os trabalhos para a organização pioneira de
+uma base de dados que provesse os recursos tecnológicos para organizar e
+recuperar informação legislativa e jurídica.
+
+Naquela época, estimava-se a existência de 110.000 normas jurídicas\footnote{O
+número provavelmente refere-se apenas às normas federais.} que orientavam a vida
+do País \cite{filipi1971}. Quase quatro décadas depois, o Instituto Brasileiro
+de Planejamento Tributário (IBPT) calculou que foram publicadas mais de quatro
+milhões de normas jurídicas -- nos níveis federal, estadual/distrital e
+municipal -- em apenas 22 anos de vigência da Constituição Federal de 1988
+\cite{estudo2010}.
+
+O principal problema proveniente da grande quantidade de normas jurídicas é
+saber quais delas vigem em determinadas datas. A dinâmica da evolução do
+ordenamento jurídico, considerando-se o número crescente de normas alteradoras e
+revogadoras, cria um ``labirinto legislativo'' \cite{wald1969} dificultando a
+compreensão dessas normas pelo cidadão e o trabalho dos operadores do Direito.
+Além disso, o processo legislativo opera a partir da legislação vigente, ou
+seja, o trabalho das casas legislativas depende de uma precisa gestão da
+informação jurídica.
+
+Para os juristas, o âmago da questão é exposto por colocação de
+\citeonline[p.~13-14]{ferreira-filho2009}:
+
+\begin{citacao}
+A multidão de leis afoga o jurista, esmaga o advogado, estonteia o cidadão,
+desnorteia o juiz. A fronteira entre o lícito e o ilícito fica incerta. A
+segurança das relações sociais, principal mérito do direito escrito, se
+evapora. [...] Quanto maior o número de leis que se editam, menor o respeito
+que cada qual inspira. Como reverenciar a lei se esta não despreza o ridículo?
+Como cultuá-la se passa breve como um meteoro? Daí o \emph{bonus pater familias}
+ignorá-la, o jurista ironizá-la, o magistrado esquecê-la.
+\end{citacao}
+
+É curioso notar que essa citação pode ser encontrada na edição de
+\citeyear{ferreira-filho1968} (p.~11) do livro do eminente autor e também na
+edição mais recente publicada em 2009, mostrando claramente que o problema é
+antigo e que permanece inalterado.
+
+Para os bibliotecários jurídicos e os profissionais que atuam na área da
+Tecnologia da Informação, a principal missão é entender a complexidade do
+universo da informação jurídica e oferecer ferramentas que possam facilitar o
+acesso ao conteúdo das normas jurídicas, informando toda e qualquer alteração
+sofrida. As citações abaixo ilustram o ponto de vista dos profissionais da
+informação:
+
+\begin{citacao}
+A compreensão do mecanismo jurídico-legal está incluída entre os instrumentos do
+trabalho de referência legislativa por se tratar de um conjunto de noções
+adquiridas, imprescindíveis não só ao bom desempenho da tarefa de pesquisa do
+bibliotecário de documentação jurídica, como também dos esclarecimentos
+cuidadosos que muitas vezes esse profissional terá de prestar ao consulente
+comum que, na maioria dos casos, não está a par da terminologia e do
+intrincamento do processo legislativo de seu próprio país
+\cite[p.~20]{atienza1979}.
+\end{citacao}
+
+\begin{citacao}
+É antiga a preocupação de bibliotecários com a explosão documental, devido à
+necessidade imperiosa de promover o acesso físico, bem como a seu conteúdo
+\cite[p.~364]{passos1994}.
+\end{citacao}
+
+\begin{citacao}
+O bibliotecário jurídico necessita dar especial atenção ao volume de informações
+que podem ser recuperadas, porque a abundância de informações pode tornar ainda
+mais difícil a recuperação da informação procurada \cite[p.~96]{passos2009}.
+\end{citacao}
+
+\begin{citacao}
+No ordenamento jurídico brasileiro, há uma abundante produção de informação
+jurídica, seja ela analítica (doutrina), ou, principalmente, normativa
+(legislação), como se fosse possível melhorar ou sanar os problemas da
+sociedade com leis e mais leis. Não é de estranhar que muitas leis são
+esquecidas ou simplesmente ignoradas \cite[p.~98]{passos2009}.
+\end{citacao}
+
+No âmbito das instituições públicas brasileiras, analistas de informação e
+bibliotecários tradicionalmente se aliam aos profissionais da área de tecnologia
+da informação para a criação de sistemas informatizados, a fim de fornecer
+informações acuradas sobre o ciclo de vida das normas jurídicas, com ênfase no
+controle do texto durante o seu período de vigência.
+
+O sistema de informações criado pelo Senado Federal, denominado SICON, permitia
+que outras instituições aderissem e pudessem contribuir, por intermédio de
+convênios, para o armazenamento e a recuperação de informações, mediante
+inserção da sua jurisprudência e dos atos normativos editados por elas. Desse
+modo, foram criadas bases de dados específicas para a jurisprudência do Tribunal
+Superior do Trabalho (TST), a legislação do Distrito Federal, a legislação de
+hierarquia inferior do Poder Executivo Federal, entre outras. Até aquele
+momento, todos utilizavam o mesmo padrão, o mesmo vocabulário.
+
+A inexistência de padrões nacionais ou internacionais para o desenvolvimento de
+bases de dados jurídicas ``por uma autoridade central ou mesmo pelo costume''
+\cite[p.~60]{almeida-filho2005}, a popularização da internet e a consequente
+migração das bases de dados para o ambiente da web criaram o cenário propício
+para que cada instituição optasse por seu próprio padrão e formato e ainda
+desenvolvesse e passasse a utilizar vocabulário particular. Ademais, cada base
+de dados possui o seu portal, dificultando a localização da informação,
+principalmente se o usuário desejar conhecer duas ou mais facetas de um mesmo
+assunto: a legislação federal e a de um ente federativo, ou a legislação e a
+jurisprudência, por exemplo.
+
+O Portal LexML (\url{http://www.lexml.gov.br/}) surgiu com a missão de ser um
+ponto unificado de acesso para a informação jurídica brasileira, constituindo-se em
+ferramenta que se propõe a cumprir o preceito da garantia do acesso à informação
+a todos os cidadãos, previsto no inciso XIV do art. 5º da Constituição Federal.
+
+É preciso destacar que a simples existência de sistemas informatizados não
+soluciona as questões relacionadas ao acesso, uma vez ``que o verdadeiro problema
+é supor que a tecnologia, em si, possa resolver todas as dificuldades''
+\cite{davenport2001}.
+
+Além do volume excessivo, a informação jurídica possui especificidades devido
+aos relacionamentos existentes entre as normas que podem provocar alteração,
+anulação, revogação, regulamentação, reedição, revigoração, suspensão de
+eficácia, ressalva, conversão, interpretação constitucional, declaração de
+insubsistência, entre outras situações. Falhas na técnica legislativa podem
+dificultar o acesso à informação procurada. O sistema ideal precisa estar
+preparado para registrar esses relacionamentos e advertir o usuário, por meio de
+notas, sobre os problemas na técnica legislativa, favorecendo assim a
+interpretação e/ou a aplicação da informação jurídica.
+
+Com a finalidade de estudar aspectos pontuais e relevantes para propor melhorias
+ao Portal LexML foi criado o Comitê Gestor de Informação (CGLEXML). Um dos
+aspectos estudados foi a proposta de criação de um modelo de requisitos para a
+gestão da informação jurídica.
+
+
+% ---------------------------------------------------------- 
+\chapter{Modelos de Requisitos: o que são?}
+% ----------------------------------------------------------
+
+De forma consciente ou não, ao desenvolver qualquer tipo de projeto, são
+elencados requisitos que o projeto deve atender. O cliente especifica o que
+deseja e o profissional que desenvolverá o projeto procura oferecer um produto
+dentro das características dadas. Esse procedimento garante a qualidade e a
+aceitação do produto. ``Todos os projetos, desde os menores até os maiores,
+podem se beneficiar da atenção dada aos requisitos'' \cite{carvalho2002}.
+
+Na área de desenvolvimento de software existe a engenharia de requisitos, que
+``corresponde ao processo de aquisição, refinamento e verificação das
+necessidades do cliente para um sistema de software, objetivando-se ter uma
+especificação completa e correta dos requisitos'' \cite{carvalho2002}.
+
+No desenvolvimento de sistemas de informações é necessário também estabelecer os
+requisitos ou padrões que tais sistemas devem alcançar. No caso específico de
+sistemas de informações jurídicas, cujo objeto possui três formas (a legislação,
+a jurisprudência e a doutrina) e muitas peculiaridades, o estabelecimento de um
+modelo de requisitos é essencial para garantir a confiabilidade, a integralidade
+e a atualidade das informações. Outrossim, o modelo de requisitos desempenha um
+importante papel na comunicação entre os profissionais que atuam nas áreas
+jurídica e de tecnologia da informação.
+
+São aqui mostradas três experiências na elaboração de modelos de requisitos
+para a gestão da informação arquivística, que serviram de base para a montagem
+do modelo de requisitos para a gestão da informação jurídica.
+
+% --
+\section{MoReq}
+% --
+
+Uma experiência já sedimentada e pioneira de especificação de requisitos para
+gestão de documentos arquivísticos é o MoReq (\emph{Model Requirements for the
+Management of Electronic Records}), desenvolvido pela Comissão Europeia.
+
+Em 2001, a Comissão Europeia, depois de extensos e profundos estudos, publicou a
+primeira versão do MoReq, que ``é uma especificação genérica para sistemas
+desenhados para administrar documentos arquivísticos eletrônicos. Não é um
+padrão oficial, mas pode ser usado para planejar, selecionar e auditar tais
+sistemas'' \cite{piers2003}.
+
+Em virtude das mudanças tecnológicas ocorridas que afetaram a criação, captura e
+gestão de arquivos eletrônicos foi necessário fazer uma atualização e ampliação
+nos requisitos. Sendo assim, a segunda versão, o MoReq2, foi lançada em 2008,
+com uma estrutura modular que podia ser encaixada em várias situações. No final
+de 2010, uma nova versão foi colocada em consulta pública \cite{european2008}.
+
+As especificações foram organizadas em 13 capítulos e cada capítulo foi dividido
+em seções. O primeiro capítulo é uma introdução geral ao MoReq, o segundo traz
+conceitos e terminologia utilizada, do terceiro ao nono estão elencados os
+requisitos propriamente ditos, o décimo traz os módulos opcionais, o décimo
+primeiro contém os requisitos não funcionais, o décimo segundo identifica os
+requisitos para a gestão dos metadados e as definições dos metadados, o último
+apresenta um modelo de referência para um sistema de gestão para arquivos
+eletrônicos.
+
+Os requisitos apresentados pelo MoReq são funcionais, não funcionais e de
+metadados:
+
+\begin{citacao}
+Os requisitos funcionais são aqueles definidos previamente, de acordo com as
+funções que se deseja que o sistema eletrônico de gerenciamento de documentos
+arquivísticos realize. [...] Em contrapartida, os requisitos não-funcionais são
+aqueles que deverão ser definidos de acordo com as exigências das organizações
+que implementarão um sistema eletrônico de gerenciamento de documentos
+arquivísticos, de acordo com a estrutura de cada uma, bem como suas
+características físicas e o ambiente operacional técnico. Tais requisitos
+referem-se mais especificamente à usabilidade, desempenho do sistema,
+disponibilidade do sistema, normas técnicas e regulamentares, obsolescência
+tecnológica etc. [...] Já os requisitos de metadados, traduzidos pela edição
+portuguesa como meta-informação, representam uma listagem de elementos
+necessários para a produção, gestão e utilização de documentos de arquivo ao
+longo do tempo em um sistema eletrônico de gerenciamento de documentos
+arquivísticos \cite{lima2004}.
+\end{citacao}
+
+% --
+\section{e-Arq Brasil}
+\label{sec-earq-brasil}
+% --
+
+O e-ARQ Brasil é um modelo de requisitos para sistemas informatizados de gestão
+arquivística de documentos (SIGAD), desenvolvido pela Câmara Técnica de
+Documentos Eletrônicos (CTDE) do Conselho Nacional de Arquivos (Conarq).
+
+\begin{citacao}
+É uma especificação de requisitos a serem cumpridos pela organização
+produtora/recebedora de documentos, pelo sistema de gestão arquivística e pelos
+próprios documentos, a fim de garantir sua confiabilidade e autenticidade,
+assim como sua acessibilidade \cite[p.~9]{conarq2009}.
+\end{citacao}
+
+O e-ARQ Brasil está dividido em duas partes: \emph{Gestão arquivística de
+documentos} e \emph{Especificação de requisitos para sistemas informatizados de
+gestão arquivística de documentos}. A primeira ``trata da política arquivística,
+do planejamento e da implantação do programa de gestão arquivística de
+documentos, dos procedimentos e controles do SIGAD e dos instrumentos utilizados
+na gestão de documentos'' e a segunda ``está organizada em \emph{Aspectos de
+funcionalidade, Metadados, Glossário e Referências}'' \cite[p.~16]{conarq2009}.
+
+Em relação à obrigatoriedade dos requisitos e dos metadados, aqueles ``foram
+classificados em obrigatórios, altamente desejáveis e facultativos, de acordo
+com o grau maior ou menor de exigência para que o SIGAD possa desempenhar suas
+funções'' \cite[p.~16]{conarq2009}; estes foram ``classificados de acordo com o
+grau maior ou menor de exigência para apoiar as funcionalidades do SIGAD''
+\cite[p.~16]{conarq2009}, podendo ser obrigatório, obrigatório se aplicável e
+facultativo.
+
+% --
+\section{MoReq-Jus}
+% --
+
+A partir de 2006, a Lei nº 11.419 permitiu a informatização do processo judicial
+admitindo o uso de meio eletrônico na tramitação de processos judiciais,
+comunicação de atos e transmissão de peças processuais. Logo foi percebida a
+premente necessidade de criar políticas específicas de preservação dos
+documentos digitais jurídicos e requisitos mínimos para os sistemas que
+garantiriam a sua gestão.
+
+Utilizando, entre outras referências, os modelos MoReq e e-Arq Brasil, foi
+elaborado o Modelo de Requisitos para Sistemas Informatizados de Gestão de
+Processos e Documentos do Judiciário brasileiro (MoReq-Jus), com a finalidade de
+``estabelecer requisitos mínimos para os sistemas informatizados do Poder
+Judiciário, de forma a garantir a confiabilidade, a autenticidade e a
+acessibilidade dos documentos e processos geridos por esses sistemas''
+\cite[p.~5]{cnj2009}.
+
+
+
+% ----------------------------------------------------------
+\chapter{Modelo de Requisitos para Sistemas Informatizados de Gestão da 
+Informação Jurídica}
+% ----------------------------------------------------------
+
+% ---
+% \section{Gestão da informação jurídica}
+% ---
+
+% A intervenção humana é fundamental para o aprimoramento dos
+% sistemas de informações.
+% Diversos autores têm destacado que
+ 
+O volume de informações produzidas pela atuação humana, o mundo globalizado e o
+advento da web, propiciaram, entre outras coisas, a facilidade para o
+compartilhamento e a transferência de conhecimento.
+Isso traz como consequência a necessidade de se promover o gerenciamento desse
+conhecimento.
+
+Se por um lado, o desenvolvimento independente de diversos sistemas de
+informação jurídica trouxe como vantagem primordial a multiplicação de bases de
+dados que facilitaram o acesso à informação jurídica que rege a vida de todos os
+cidadãos, por outro lado e paradoxalmente, trouxe também interfaces diferentes
+que dificultaram o acesso à informação jurídica, pois o usuário menos
+familiarizado com sistemas eletrônicos pode encontrar dificuldades para entender
+as diversas particularidades de cada sistema.
+
+Todo e qualquer sistema de informação jurídica apresenta características
+desejáveis ou boas práticas, que podem servir de referência para outros. Em
+\citeyear{passos2009}, \citeauthoronline{passos2009} realizaram estudo sobre as
+bases de dados de legislação estadual e distrital, com o intuito de ``analisar
+comparativamente as bases de dados de legislação estadual e distrital, enfatizar
+seus pontos positivos e, ao final, propor os requisitos recomendáveis para uma
+base de dados ideal'' \cite[p.~17]{passos2009}. Para a autora é de suma
+importância que uma base de dados seja a mais completa possível:
+
+\begin{citacao}
+ $[$...$]$ se a base de dados não estiver construída de forma completa e
+ % amigável, para que possa favorecer a recuperação da informação, não estará realmente
+prestando um serviço público. A omissão ou a insuficiência de informação pode
+ser mais perniciosa que a falta total de informação \cite[p.~17]{passos2009}.
+\end{citacao}
+
+Uma determinada norma jurídica, por exemplo, pode não ter sido expressamente
+revogada por outra, mas pode ter sua vigência alterada se for declarada
+inconstitucional por um tribunal constitucional. Se a base de dados não mantiver
+informações cruzadas entre a legislação e a jurisprudência poderá fornecer um
+serviço incompleto e desatualizado.
+
+O Comitê Gestor de Informação do Portal LexML estabeleceu, em seu \emph{Plano de
+Metas: Biênio 2009-2010}, o objetivo de definir um modelo de requisitos para a
+gestão da informação jurídica, com o propósito principal de ser uma forma de
+uniformizar os esforços de gestão da informação jurídica e, ao final, apresentar
+os requisitos mínimos para um Sistema de Gestão da Informação Jurídica (SILEX).
+
+O SILEX se aplica a todos os desenvolvedores e/ou mantenedores de sistemas
+jurídicos informatizados, podendo ser utilizado para orientar o desenvolvimento,
+o aprimoramento ou a aquisição de sistemas informatizados de gestão da
+informação jurídica.
+
+% --
+\section{Objetivo}
+% --
+
+% O objetivo do SILEX é \emph{realizar a gestão da informação jurídica em todo o
+% seu ciclo de vida tendo em vista o controle da vigência das normas, sua eficácia
+% expressa, as versões de seus textos, a identificação e a estrutura das normas e
+% as relações entre normas e a fonte oficial}.
+
+O objetivo do SILEX é \emph{realizar a gestão da informação jurídica
+considerando o controle da vigência, da eficácia expressa, das versões de
+textos, além da identificação da norma, dos dispositivos e dos relacionamentos
+que ocorrem no tempo}.
+
+Cabe destacar que o SILEX não se aplica à gestão arquivística, ou do processo
+legislativo, ou do processo judicial e ainda não se presta a registrar
+comentários.
+
+% ---
+\section{Abrangência}
+% ---
+
+O SILEX permite a gestão de normas jurídicas e abrange:
+
+\begin{alineas}
+ \item Normas federais, estaduais, distritais e municipais;
+ \item Normas constitucionais, legais e infralegais;
+ \item Incorporação de atos internacionais na esfera legal ou constitucional;
+ \item Relacionamento entre normas e decisões de controle de
+ constitucionalidade.
+\end{alineas}
+
+% ---
+\section{Metodologia}
+% ---
+
+Para estabelecer os requisitos mínimos para a gestão da informação jurídica, foi
+criado pelo Comitê Gestor de Informação do Portal LexML, um grupo de trabalho
+específico, que entrou em atividade em 15 de junho de 2010. Em sua primeira
+reunião elegeu, por aclamação e unanimidade, o bibliotecário José Ronaldo
+Vieira, do Superior Tribunal de Justiça, para exercer as atividades de
+coordenador. Composto por nove integrantes originários de seis instituições
+diferentes com formação acadêmica heterogênea.
+
+% O Grupo de Trabalho reuniu-se n vezes, conforme mostrado a seguir:
+A \autoref{tab-reunioes-gt-silex} lista as reuniões do Grupo de Trabalho (GT).
+
+\begin{table}[htb]
+\center
+\footnotesize
+\caption[Reuniões do Grupo de Trabalho do SILEX]{Reuniões do Grupo de Trabalho do SILEX}
+\label{tab-reunioes-gt-silex}
+\begin{tabular}{c|r|p{10.0cm}}
+  %\hline
+   \textbf{Reunião} & \textbf{Data} & \textbf{Local}   \\
+    \hline
+    1ª & 15.6.2010 & Centro de Documentação e Informação, Câmara dos Deputados
+    \\ \hline
+     2ª & 10.8.2010 & Procuradoria-Geral do Banco Central
+    \\ \hline
+    3ª & 8.9.2010 & Consultoria-Geral da União, Advocacia Geral da União
+    \\ \hline
+    4ª & 29.9.2010 & \multirow{2}{*}{Centro de Documentação e Informação,
+    Câmara dos Deputados}
+    \\ \cline{1-2}
+    5ª & 20.10.2010 
+    \\ \cline{1-2}
+    6ª & 10.11.2010
+    \\ \hline
+    7ª & 8.9.2010 & Consultoria-Geral da União, Advocacia Geral da União
+    \\ \hline
+    8ª & 10.2.2011 & \multirow{26}{*}{Centro de Documentação e Informação,
+    Câmara dos Deputados}
+    \\ \cline{1-2}
+    9ª & 24.2.2011
+    \\ \cline{1-2}
+    10ª & 17.3.2011
+    \\ \cline{1-2}
+    11ª & 7.4.2011
+    \\ \cline{1-2}
+    12ª & 27.4.2011
+    \\ \cline{1-2}
+    13ª & 18.5.2011
+    \\ \cline{1-2}
+    14ª & 7.6.2011
+    \\ \cline{1-2}
+    15ª & 15.6.2011
+    \\ \cline{1-2}
+    16ª & 7.7.2011
+    \\ \cline{1-2}
+    17ª & 3.8.2011
+    \\ \cline{1-2}
+    18ª & 24.8.2011
+    \\ \cline{1-2}
+    19ª & 8.9.2011
+    \\ \cline{1-2}
+    20ª & 5.10.2011
+    \\ \cline{1-2}
+    21ª & 4.11.2011
+    \\ \cline{1-2}
+    22ª & 23.11.2011
+    \\ \cline{1-2}
+    23ª & 7.12.2011
+    \\ \cline{1-2}
+    24ª & 8.2.2012
+    \\ \cline{1-2}
+    25ª & 14.3.2012
+    \\ \cline{1-2}
+    26ª & 11.4.2012
+    \\ \cline{1-2}
+    27ª & 2.52012
+    \\ \cline{1-2}
+    28ª & 23.5.2012
+    \\ \cline{1-2}
+    29ª & 22.6.2012
+    \\ \cline{1-2}
+    30ª & 7.8.2012
+    \\ \cline{1-2}
+    31ª & 29.8.2012
+    \\ \cline{1-2}
+    32ª & 3.10.2012
+    \\ \cline{1-2}
+    33ª & 18.10.2012
+    \\ \cline{1-2}
+    34ª & 14.11.2012
+    \\ \hline
+    35ª & 20.2.2013 & Secretaria de Informação e Documentação, Senado Federal
+    \\ \hline
+    36ª & 3.4.2013 & \multirow{1}{*}{Centro de Documentação e Informação da
+    Câmara dos Deputados}
+    \\ \cline{1-2}
+    37ª & 8.5.2013
+    \\ \hline
+    \hline
+\end{tabular}
+%\legend{Fonte: os autores}
+\end{table}
+
+Para a montagem do Modelo de Requisitos, o GT utilizou, além dos conhecimentos
+acadêmicos e da larga experiência profissional de cada integrante, algumas
+fontes de informação, que, por dever de ofício e gratidão, devem ser mencionadas
+aqui. Em primeiro lugar, destaca-se o \emph{Manual de Compilação da Legislação
+Brasileira da Câmara dos Deputados} \cite{cd2012}, que serviu de embasamento
+para a elaboração dos requisitos de compilação.
+
+O Manual de Compilação da Legislação Brasileira foi elaborado como instrumento
+de trabalho da Coordenação de Estudos Legislativos (CELEG) para subsidiar os
+trabalhos de compilação da legislação de hierarquia superior incluída no Sistema
+de Legislação Informatizada (LEGIN) da Câmara dos Deputados. A proposta da CELEG
+é promover a compilação das normas jurídicas, reunindo em um único texto todas
+as alterações ocorridas durante a sua vigência. O manual tem como objetivo
+padronizar a apresentação dos textos compilados e disponibilizar os textos
+atualizados da legislação federal brasileira, de hierarquia superior (leis,
+decretos, decretos-leis, decretos legislativos, medidas provisórias, resoluções
+da Câmara dos Deputados e outros), além dos textos originais publicados em
+fontes oficiais. Elaborado em 2006 por uma equipe formada por bibliotecários e
+consultores legislativos, sob a coordenação da bibliotecária e servidora da
+Câmara dos Deputados Joana D’Arc Caribé, serve como referencial teórico para as
+atividades da Seção de Legislação Brasileira (SELEB). É constantemente
+atualizado conforme as mudanças no ordenamento jurídico brasileiro. O manual
+pode ser consultado na Biblioteca Digital da Câmara dos Deputados.
+
+Outros referenciais utilizados foram os portais de informação jurídica,
+especialmente os da Presidência da República (Legislação), do Senado Federal
+(SICON), da Câmara dos Deputados (LEGIN) e da Receita Federal do Brasil (SIJUT),
+nos quais foram buscados modelos de tratamento da informação jurídica.
+
+O E-Arq Brasil (\autoref{sec-earq-brasil}) serviu como paradigma e também com
+fonte de inspiração para a criação de parte dos requisitos aqui propostos.
+
+Necessário foi recorrer à doutrina e a jurisprudência para dirimir dúvidas e
+esclarecer conceitos utilizados na gestão da informação jurídica.
+
+O SILEX baseou-se na ontologia FRBRoo (\emph{Functional Requirements for
+Bibliographic Records – object-oriented}), derivada da CIDOC CRM (\emph{CIDOC
+Conceptual Reference Model}).
+
+% ---
+\section{Estruturação deste documento}
+% ---
+
+O Modelo de Requisitos do SILEX é composto por quatro macroelementos:
+\begin{alineas}
+  \item \nameref{cap_requisitos} (\autoref{cap_requisitos});
+  
+  \item \hyperref[cap_glossario]{\glossaryname} (\autopageref{cap_glossario});
+  
+  \item \nameref{apendices_tabelas_relacionamentos}
+  (\autoref{apendices_tabelas_relacionamentos}) e
+  
+  \item \nameref{apendice_diagramas}
+  (\autoref{apendice_diagramas}).
+\end{alineas}
+
+
+Os \nameref{cap_requisitos} (\autoref{cap_requisitos}) abrangem aspectos
+funcionais e não funcionais. O modelo tem oito grupos de requisitos: 
+
+% tabelas de requisitos
+\providecommand{\silextabelasrequisitos}{%
+\begin{alineas}
+ \item \nameref{tab-requisitos-gerais} (\autoref{tab-requisitos-gerais}); 
+ \item \nameref{tab-requisitos-documento} (\autoref{tab-requisitos-documento}); 
+ \item \nameref{tab-requisitos-norma} (\autoref{tab-requisitos-norma});
+ \item \nameref{tab-requisitos-compilacao}
+ (\autoref{tab-requisitos-compilacao});
+ \item \nameref{tab-requisitos-jurisprudencia}
+ (\autoref{tab-requisitos-jurisprudencia});
+ \item \nameref{tab-requisitos-pesquisa} (\autoref{tab-requisitos-pesquisa});
+ \item \nameref{tab-requisitos-funcoes-administrativas}
+ (\autoref{tab-requisitos-funcoes-administrativas}) e
+ \item \nameref{tab-requisitos-nao-funcionais}
+ (\autoref{tab-requisitos-nao-funcionais}).
+\end{alineas}
+}
+\silextabelasrequisitos
+
+Cada requisito foi classificado como obrigatório (O), obrigatório se aplicável
+(OA), desejável (D).
+
+Os requisitos \emph{obrigatórios} são aqueles essenciais para o desenvolvimento
+do sistema visando à recuperação da informação jurídica; os \emph{obrigatórios
+se aplicáveis} são aqueles essenciais para o sistema, mas que não se aplicam em
+determinadas situações; os \emph{desejáveis} são aqueles que não são
+imprescindíveis para o desenvolvimento do sistema ou para a recuperação da
+informação jurídica, mas que, se implementados, poderão facilitar a usabilidade
+do sistema, melhorar a recuperação da informação jurídica e/ou assegurar grande
+comodidade para o usuário.
+
+Cada um dos requisitos é identificado por uma sigla que o individualizará,
+servindo para facilitar as remissivas e referências cruzadas entre os
+requisitos, conforme exemplo na \autoref{tab-requisitos-gerais-demo}.
+
+\begin{tabelarequisito}{Requisitos Gerais do SILEX}{tab-requisitos-gerais-demo}
+
+  \requisito{RD1}{O}{O SILEX tem de permitir a atribuição de descritores a partir de um
+     vocabulário controlado\footnote{Requisitos do Documento
+     (Jurídico/Legislativo).}.}
+
+\end{tabelarequisito}    
+
+Além disso, o modelo de requisitos ora proposto salienta o fato de que se deve
+evitar a interpretação de informações nos sistemas que tenham por escopo a
+disponibilização, a divulgação e o acesso de informações jurídicas. Por exemplo,
+o SILEX não prevê o registro de relacionamento de \gls{revogacao-tacita}, pois
+depende de atividade interpretativa.
+
+O \hyperref[cap_glossario]{\glossaryname} consiste em lista alfabética de termos
+da área de gestão de Informação Jurídica contendo remissivas e referências
+cruzadas. Todos os termos técnicos e jurídicos utilizados no Modelo são
+definidos. A conceituação precisa dos termos apresentou elevado grau de
+dificuldade, pois as situações encontradas possuíam sutilezas que precisavam
+ficar esclarecidas e registradas, como é o caso da conceituação de quase
+sinônimos, tais como: \gls{tornar-sem-efeito--com-sentido-de-anulacao},
+\gls{tornar-sem-efeito--com-sentido-de-revogacao} e
+\gls{tornar-sem-efeito--com-sentido-de-retirada-de-eficacia}. Além disso, alguns
+termos de técnica legislativa mudaram ao longo do tempo, como é o caso do termo
+\gls{retificacao}, que até a primeira metade do século XX foi utilizado conforme
+o conceito atual de \gls{alteracao}. Ademais, é preciso que os termos tenham
+conceituação única para todo o País considerando tanto autoridades emitentes dos
+níveis federal, estadual/distrital e municipal, quanto a ampla tipologia
+documental do ordenamento jurídico desde o nível constitucional até o
+infralegal. Vale ressaltar que a terminologia adotada pelo SILEX tem aplicação
+restrita ao modelo proposto.
+
+As \nameref{apendices_tabelas_relacionamentos}
+(\autoref{apendices_tabelas_relacionamentos}) detalham os relacionamentos entre
+documentos. As tabelas são: 
+
+\begin{alineas}
+ \item \nameref{tab-relacionamento-publicacao}
+ (\autoref{tab-relacionamento-publicacao});
+
+ \item \nameref{tab-relacionamento-modificacao}
+ (\autoref{tab-relacionamento-modificacao});
+
+ \item \nameref{tab-relacionamento-vigencia}
+ (\autoref{tab-relacionamento-vigencia});
+
+ \item \nameref{tab-relacionamento-eficacia}
+ (\autoref{tab-relacionamento-eficacia});
+
+ \item \nameref{tab-relacionamento-vacatio}
+ (\autoref{tab-relacionamento-vacatio});
+
+ \item \nameref{tab-relacionamento-veto} (\autoref{tab-relacionamento-veto});
+
+ \item \nameref{tab-relacionamento-anotacoes}
+ (\autoref{tab-relacionamento-anotacoes});
+
+ \item \nameref{tab-relacionamento-validade}
+ (\autoref{tab-relacionamento-validade});
+
+ \item \nameref{tab-relacionamento-interpretacao}
+ (\autoref{tab-relacionamento-interpretacao});
+
+ \item \nameref{tab-relacionamento-medidas-provisorias}
+ (\autoref{tab-relacionamento-medidas-provisorias}) e
+
+ \item \nameref{tab-relacionamento-atos-internacionais}
+ (\autoref{tab-relacionamento-atos-internacionais}).
+  
+\end{alineas}
+
+Os \nameref{apendice_diagramas} (\autoref{apendice_diagramas}) apresentam de
+forma esquemática a mudança de estados de normas referentes aos aspectos de
+vigência (\autoref{fig_grafico_vigencia}), eficácia expressa
+(\autoref{fig_grafico_eficacia}), validade (\autoref{fig_grafico_validade}) e
+estágios de medida provisória (\autoref{fig_grafico_estagios-mp}).
+
+% --
+\subsection{Âmbito e Utilização}
+% --
+
+O SILEX deve ser utilizado para desenvolver um sistema informatizado ou para
+avaliar um já existente, cuja atividade principal seja a gestão da informação jurídica.
+
+Pode ser adotado como recomendação para a administração pública federal,
+estadual, municipal, dos poderes Executivo, Legislativo e Judiciário a fim de
+uniformizar o desenvolvimento e aquisição de sistemas que visam produzir e
+manter documentos jurídicos.
+
+O SILEX é especialmente dirigido a:
+
+\begin{alineas}
+ \item fornecedores e programadores: para orientar o desenvolvimento de um
+ sistema de informação jurídica em conformidade com os requisitos exigidos;
+ \item responsáveis pela elaboração de um edital de licitação para a
+ apresentação de propostas de fornecimento de software;
+ \item potenciais compradores de serviços externos de gestão de documentos
+ jurídicos: como material auxiliar para a especificação dos serviços a serem
+ comprados;
+ \item instituições acadêmicas: como recurso de ensino.
+\end{alineas}
+
+As orientações e requisitos contidos neste documento estão alinhados com a
+necessidade de garantir que os documentos jurídicos sejam mantidos organizados
+de forma confiável e permaneçam acessíveis ao cidadão e ao operador do Direito.
+
+% --
+\subsection{Perfis de Usuário do SILEX}
+% --
+
+O SILEX prevê, ao menos, os seguintes perfis:
+
+\begin{alineas}
+ \item \nameref{sec-papel-gestor} (\autoref{sec-papel-gestor});
+ \item \nameref{sec-papel-adm-info} (\autoref{sec-papel-adm-info});
+ \item \nameref{sec-papel-mantenedor-info}
+ (\autoref{sec-papel-mantenedor-info});
+ \item \nameref{sec-papel-revisor} (\autoref{sec-papel-revisor});
+ \item \nameref{sec-papel-usuario-final} (\autoref{sec-papel-usuario-final}).
+\end{alineas}
+
+% -
+\subsubsection{Gestor da Informação Jurídica}
+\label{sec-papel-gestor}
+% -
+
+O gestor da informação jurídica exerce papel de alta relevância. Cabe a ele,
+entre outras, as seguintes tarefas:
+
+\begin{alineas}
+  \item Zelar pela observância dos princípios do SILEX no sistema sob sua
+  gestão;
+  \item Alertar a autoridade emitente sobre:
+  \begin{incisos}
+    \item a importância da inclusão de ementas nas normas jurídicas e orientá-la
+    sobre os padrões utilizados para a sua redação;
+    \item equívocos na remissão interna e/ou externa;
+    \item a necessidade de revogar expressamente normas jurídicas que foram
+    sucedidas por outras que deram novo tratamento à matéria;
+    \item a oportunidade de simplificação do ordenamento por consolidação de
+    normas jurídicas.
+  \end{incisos}
+\end{alineas}
+
+% -
+\subsubsection{Administrador da Informação Jurídica}
+\label{sec-papel-adm-info}
+% -
+
+O Administrador da Informação Jurídica exerce as seguintes tarefas:
+
+\begin{alineas}
+ \item Configurar o sistema de gestão da informação jurídica de acordo com as
+ necessidades da instituição;
+ \item Personalizar os textos de ajuda do sistema;
+ \item Gerenciar usuários e perfis de uso do SILEX;
+ \item Verificar periodicamente estatísticas de uso do sistema;
+ \item Gerenciar a caixa postal eletrônica do SILEX.
+\end{alineas}
+
+% -
+\subsubsection{Mantenedor da Informação Jurídica}
+\label{sec-papel-mantenedor-info}
+% -
+
+Cabe ao Mantenedor da Informação Jurídica as seguintes tarefas:
+
+\begin{alineas}
+ \item Inclusão, alteração e exclusão de dados no sistema de informação;
+ \item Preparar as notas que alertam o usuário sobre novo tratamento da matéria,
+ sobre falhas na técnica legislativa ou qualquer outro aspecto que possa ter
+ relevância para o entendimento da norma jurídica;
+ \item Execução do processo de compilação de textos;
+ \item Identificar as normas jurídicas conexas que poderiam passar pelo processo
+ de consolidação e alertar ao Gestor sobre a existência desses atos.
+\end{alineas}
+
+% -
+\subsubsection{Revisor}
+\label{sec-papel-revisor}
+% -
+
+Cabe ao revisor a verificação das atualizações realizados pelo mantenedor e a
+decisão de publicação ou correção das informações incluídas.
+
+% -
+\subsubsection{Usuário Final}
+\label{sec-papel-usuario-final}
+% -
+
+Além do acesso às informações do SILEX, o usuário final poderá:
+
+\begin{alineas}
+ \item Reportar possíveis erros e inconsistências encontradas;
+ \item Sugerir melhorias no sistema.
+\end{alineas}
+
+% ----------------------------------------------------------
+\chapter{Requisitos do SILEX}
+\label{cap_requisitos}
+% ----------------------------------------------------------
+
+Os requisitos do SILEX são descritos pelas tabelas:
+
+\silextabelasrequisitos
+
+
+% --
+\begin{tabelarequisito}{Requisitos Gerais do SILEX}{tab-requisitos-gerais}
+
+  \requisito{RGS1}{O}
+    {Todo relacionamento entre unidades de informação no SILEX
+    deve permitir navegação bidirecional.}
+
+  \requisito{RGS2}{O}{Qualquer informação no SILEX deve ser alimentada uma
+   única vez, evitando-se retrabalho e inconsistência de dados.
+   \par
+   \emph{Por exemplo, a descrição dos relacionamentos entre normas  deve ser
+   suficiente para a geração das notas de alteração do texto compilado.} }
+
+  \requisito{RGS3}{O}{A descrição das unidades de informação deverá se
+  restringir aos dados contidos nas publicações oficiais sendo proibida a
+  inclusão de dados interpretativos.}
+
+  \requisito{RGS4}{O}{O SILEX permite a inclusão de alertas e notas
+  explicativas que registrem possíveis inconsistências dos dados descritivos
+  das unidades de informação ou nos seus relacionamentos.
+   \par
+   \emph{Por exemplo: pode-se incluir uma nota explicativa indicando que uma
+   norma foi publicada com a duplicação de um artigo; pode-se incluir um alerta
+   de que uma norma alterou as ocorrências de uma expressão em outra norma.} }
+
+  \requisito{RGS5}{O}{O SILEX permite a gestão de informações de múltiplos
+  ordenamentos jurídicos simultaneamente.}
+    
+\end{tabelarequisito}
+
+% --
+\begin{tabelarequisito}{Requisitos do Documento (Jurídico /
+Legislativo)}{tab-requisitos-documento}
+
+  \requisito{RD1}{O}{O SILEX tem de permitir a atribuição de descritores a
+  partir de um vocabulário controlado para documento no todo ou em parte.}
+
+  \requisito{RD2}{O}{Palavras e expressões em Latim ou em outros idiomas
+  estrangeiros devem ser grafadas em itálico.}
+
+  \requisito{RD3}{O}{O SILEX tem de permitir o registro de apelidos ou nomes
+  populares de documentos legislativos ou jurídicos com suas respectivas siglas.}
+
+\end{tabelarequisito}
+
+% --
+\begin{tabelarequisito}{Requisitos da Norma Jurídica}{tab-requisitos-norma}
+
+  \requisito{RNJ1}{O}{O SILEX tem de registrar todos os textos referentes às
+  publicações da norma na fonte oficial (ex. periódico oficial), incluindo seus
+  anexos, considerando a publicação do texto original, as retificações,
+  republicações e republicações atualizadas.}
+
+  \requisito{RNJ2}{O}{O SILEX tem de registrar o texto da mensagem de veto da
+  proposição legislativa, a apreciação dos vetos e a promulgação dos vetos
+  rejeitados.}
+
+  \requisito{RNJ3}{O}{O SILEX tem de registrar o relacionamento com a
+  proposição legislativa de origem com o objetivo de informar a exposição de
+  motivos ou a justificativa além da sua tramitação.}
+
+  \requisito{RNJ4}{O}{O SILEX tem de registrar os relacionamentos entre normas
+  conforme Tabela de Relacionamentos.}
+
+  \requisito{RNJ5}{O}{O SILEX tem de propagar os relacionamentos de
+  regulamentação ou disciplinamento de relações jurídicas decorrentes de
+  decreto-lei ou medidas provisórias não convertidas em lei ou rejeitadas na
+  norma jurídica alterada pela norma provisória.
+  \par
+  \emph{Por exemplo: o DLG 247/2012 que disciplina as relações jurídicas da MPV
+  552/2011 que inseriu o parágrafo 8 do art. 8 na Lei 10925/2004.}}
+
+  \requisito{RNJ6}{O}{O SILEX tem de registrar a vacatio legis, o período de
+  vigência e o período de eficácia da norma no todo e, se necessário, dos seus
+  dispositivos. O período de eficácia será registrado nos casos expressos.
+  \par
+  \emph{Ver também \ref{RGS3}.}}
+
+  \requisito{RNJ7}{O}{O SILEX tem de apresentar a situação de vigência da norma
+  ou dos dispositivos com base nos relacionamentos de: anulação, declaração de
+  insubsistência, fim de vacatio, fim de vigência, início de vacatio, início de
+  vigência, revogação total, declaração de inconstitucionalidade, revigoração,
+  vacância, rejeição, conversão, declaração de prejudicialidade de medida
+  provisória.
+  \par
+  \emph{Situações possíveis: Anulada, Não Consta Revogação Expressa, Revogada,
+  Suspensa, Sem Eficácia, Declarada Inconstitucional, Em vacatio legis,
+  Prejudicada, Convertida, Rejeitada, Insubsistente.}}
+
+  \requisito{RNJ8}{O}{O SILEX tem de apresentar a situação de eficácia expressa
+  da norma ou dos dispositivos com base nos relacionamentos de: suspensão de
+  eficácia, suspensão de efeitos.
+  \par
+  \emph{Situações possíveis: Anulada, Não Consta Revogação Expressa, Revogada,
+  Suspensa, Sem Eficácia, Declarada Inconstitucional, Em vacatio legis,
+  Prejudicada, Convertida, Rejeitada, Insubsistente.}}
+
+  \requisito{RNJ9}{O}{O SILEX tem de apresentar a situação da norma ou dos
+  dispositivos com base no período de vacatio legis, período de vigência e
+  relacionamentos de: anulação, declaração de insubsistência, revogação total,
+  declaração de inconstitucionalidade, suspensão de eficácia, suspensão de
+  efeitos, revigoração, vacância, rejeição, conversão, declaração de
+  prejudicialidade de medida provisória.
+  \par
+  \emph{Situações possíveis: Anulada, Não Consta Revogação Expressa, Revogada,
+  Suspensa, Sem Eficácia, Declarada Inconstitucional, Em vacatio legis,
+  Prejudicada, Convertida, Rejeitada, Insubsistente.}}
+
+\end{tabelarequisito}
+
+% --
+\begin{tabelarequisito}{Requisitos da Compilação de
+Texto}{tab-requisitos-compilacao}
+
+  \requisito{RCT1}{O}{O SILEX tem de auxiliar a geração do texto retificado da
+  norma jurídica e de seus anexos, com o registro da fonte oficial que publicou
+  a retificação. O texto derivado deve ser ratificado por um revisor humano.}
+
+  \requisito{RCT2}{O}{O SILEX tem de auxiliar a geração do texto compilado da
+  norma jurídica e de seus anexos, com o registro das normas modificadoras.
+  Deve-se gerar o texto monovigente e o texto multivigente para cada período de
+  vigência. O texto derivado deve ser ratificado por um revisor humano, podendo
+  ser auxiliado por uma comparação automatizada de textos.}
+
+  \requisito{RCT3}{O}{No caso das alterações e revogações, somente serão
+  incluídas as expressas.}
+
+  \requisito{RCT4}{O}{No caso das alterações e revogações com entrada em vigor
+  posterior a data de publicação, o SILEX deverá gerar vide no texto compilado
+  até a entrada em vigor da norma modificadora, quando as alterações/revogações
+  serão integradas ao novo texto.}
+
+  \requisito{RCT5}{O}{As notas de compilação serão geradas de forma automática
+  e conterão a ação (nova redação, revogação e acréscimos), identificação da
+  norma alteradora com a respectiva informação sobre o início da vigência. No
+  caso de retificação da alteração da norma alteradora devem-se explicitar
+  dados da retificação. Dispensa-se o uso das siglas “(NR)” e “(AC)”. A nota de
+  compilação deve possuir link para o dispositivo alterador.
+  \par
+  \emph{Exemplos:}\par
+  \emph{(Redação dada pela Lei nº n/aaaa, com vigência a partir de
+  dd/mm/aaaa)}\par 
+  \emph{(Acrescido pela Lei nº n /aaaa, com vigência a partir de
+  dd/mm/aaaa)}\par 
+  \emph{(Revogado pela Lei nº n /aaaa, com vigência a partir de
+  dd/mm/aaaa)}}
+
+  \requisito{RCT6}{O}{O SILEX informará a data de início de vigência da
+  alteração conforme determinação explícita da norma alteradora. Nos casos
+  omissos, tais como leis com veto na cláusula de vigência ou ausência da
+  cláusula de vigência, devem-se adotar os princípios expressos na Constituição
+  Federal (art. 150, III, b e c), na Lei de Introdução às Normas do Direito
+  Brasileiro (LINDB, art. 1º) e no Código Tributário Nacional (arts. 103 e
+  104). Além disso, no caso de Emendas Constitucionais, deve-se observar o
+  princípio da imediata incidência das regras jurídicas constitucionais.
+  \par
+  \emph{Exemplo de norma sem cláusula de vigência: Lei nº 9.041, de 9/5/1995.}
+  \par
+  \emph{Exemplo de norma com cláusula de vigência vetada: Lei nº 10.732, de
+  5/9/2003.}}
+
+  \requisito{RCT7}{O}{O texto compilado apresentará as notas de compilação nos
+  respectivos dispositivos alterados e, nos casos em que a nota se refere ao
+  documento como um todo, com destaque após a epígrafe.}
+
+  \requisito{RCT8}{O}{O texto compilado monovigente apresentará na nota de
+  compilação a origem do dispositivo e a referência à última norma
+  modificadora. No caso de dispositivos alterados ou acrescidos por Medida
+  Provisória cujo texto foi mantido pela lei de conversão, a nota de compilação
+  indicará a edição da Medida Provisória e a lei de conversão. \par
+  \emph{Exemplos:}\par
+  \emph{(Acrescido pela Lei nº N /aaaa e alterado pela Lei nº N /aaaa, com
+  vigência a partir de dd/mm/aaaa)}\par
+  \emph{(Redação dada pela Medida Provisória nº n-m/aaaa, convertida na Lei nº
+  n/aaaa)}}
+
+  \requisito{RCT9}{O}{Nos casos de dispositivos incluídos por norma posterior
+  objeto de veto parcial, o texto compilado apresentará na nota de compilação a
+  informação de origem do dispositivo bem como sua situação.\par
+  \emph{Exemplo: (VETADO) (Acrescido pela Lei nº N /aaaa)}}
+
+  \requisito{RCT10}{O}{Nos casos de dispositivos revigorados, o texto compilado
+  apresentará a nota da revogação juntamente com a nota de revigoração.\par
+  Exemplo:\par
+  Art 146, IX, alínea c da Lei 4.737/1965 (REVOGADO pela Lei nº 6989/1982)
+  (REVIGORADO pela Lei nº 7332/1985)}
+
+  \requisito{RCT11}{O}{Nos casos em que houver remissões internas ou externas
+  para dispositivos que foram renumerados, considerando-se inclusive a
+  renumeração de ``Parágrafo Único'' para ``§ 1º'', deve-se gerar alerta
+  automático em cada remissão com referência à norma que renumerou.}
+
+  \requisito{RCT12}{O}{Nos casos de modificações produzidas por Medidas
+  Provisórias anteriores à EMC nº 32/2001, só serão referenciadas em nota de
+  compilação as reedições que promoveram alterações no dispositivo.}
+
+  \requisito{RCT13}{O}{O SILEX registrará em nota quaisquer problemas relativos
+  à técnica legislativa, incluindo erros de numeração de dispositivos, de
+  normas e de remissão interna ou externa.}
+
+  \requisito{RCT14}{O}{O SILEX registrará em nota falhas encontradas nas
+  remissões, tanto internas quanto externas.}
+\end{tabelarequisito}
+
+% --
+\begin{tabelarequisito}{Requisitos da
+Jurisprudência}{tab-requisitos-jurisprudencia}
+
+  \requisito{RJP1}{O}{O SILEX deve registrar informações descritivas tais como
+  a epígrafe, a ementa do acórdão, a decisão do relator, data de julgamento, a
+  informação da publicação oficial e o link para o inteiro teor da decisão. }
+
+  \requisito{RJP2}{O}{O SILEX deve apresentar informação sobre o andamento do
+  processo quando não se tratar de decisão definitiva, como, por exemplo, a
+  Decisão Liminar em Sede de ADI.}
+
+\end{tabelarequisito}
+
+% --
+\begin{tabelarequisito}{Requisitos de Pesquisa, Recuperação e
+Apresentação}{tab-requisitos-pesquisa}
+
+  \requisito{RPR1}{O}{O SILEX deve permitir a pesquisa no texto integral (mono
+  e multivigente) e por campos estruturados.}
+
+  \requisito{RPR2}{O}{Na pesquisa do texto integral, o SILEX deve permitir a
+  escolha da granularidade do item de pesquisa.
+  \par
+  \emph{Por exemplo: o usuário pode pesquisar em nível de Artigos,
+  Parágrafos ou Capítulos.}}
+
+  \requisito{RPR3}{O}{Os documentos gerenciados pelo SILEX devem ser
+  apresentados em múltiplos formatos possibilitando também a leitura em
+  dispositivos móveis.}
+
+  \requisito{RPR4}{O}{A interface de consulta de texto compilado do SILEX
+  possibilitará a seleção dos tipos de nota e relacionamentos a serem
+  apresentados.}
+
+  \requisito{RPR5}{O}{A interface de consulta de texto compilado do SILEX
+  possibilitará a aglutinação das notas de compilação até o nível de artigo.
+  \par
+  \emph{(Artigo acrescido pela Lei nº n /aaaa, com vigência a partir de
+  dd/mm/aaaa)}
+  \par
+  \emph{(Parágrafo acrescido pela Lei nº n/aaaa, com vigência a partir de
+  dd/mm/aaaa) [ parágrafos com inciso e alíneas ]}}
+
+\end{tabelarequisito}
+
+% --
+\begin{tabelarequisito}{Requisitos de Funções
+Administrativas}{tab-requisitos-funcoes-administrativas}
+
+  \requisito{RFA1}{O}{O SILEX tem de permitir a escolha dos nomes dos
+  relacionamentos pelo administrador do sistema.
+  \par
+  \emph{Esta característica deve ser utilizada em casos excepcionais, para
+  atender a especificidades de determinado sistema. Por exemplo, será possível
+  nomear o relacionamento ``Retificação (com sentido de alteração)'' como
+  ``Alteração''.}}
+
+  \requisito{RFA2}{O}{O SILEX tem de registrar todos os eventos referentes à
+  manipulação dos textos, incluindo as operações resultantes de processo
+  informatizado (ex: compilação, normalização) ou de intervenção humana (ex:
+  revisão).  Serão registrados a data/hora do evento e o nome do programa com
+  sua versão ou a identificação do operador humano. }
+
+  \requisito{RFA3}{O}{O SILEX deverá permitir a gestão de usuários e de perfis.}
+
+  \requisito{RFA4}{D}{O SILEX deve permitir a gravação de opções \emph{default}
+  para entrada de dados, tais como: valores de variáveis definidas pelo usuário;
+  valores iguais aos de um item anterior; valores que possam ser selecionados
+  em uma lista configurável; valores derivados do contexto, como data; e
+  valores predefinidos por um administrador (para campos de metadados como, por
+  exemplo, o nome da organização que está utilizando o sistema).}
+
+\end{tabelarequisito}
+
+% --
+\begin{tabelarequisito}{Requisitos não funcionais: acessibilidade (tecnológica)
+e segurança}{tab-requisitos-nao-funcionais}
+
+  \requisito{RNF1}{O}{O SILEX deve prever procedimentos de segurança que
+  garantam a integridade dos documentos e que permita o controle de acesso para
+  o público a que se destina, permitindo restringir o acesso a documentos para
+  usuário ou grupos de usuários, atendendo disposto em legislação específica.}
+
+  \requisito{RNF2}{O}{O SILEX tem de dispor de documentação referente a
+  aspectos de administração do sistema. A documentação deve incluir todas as
+  informações necessárias para o correto gerenciamento do sistema.}
+
+  \requisito{RNF3}{D}{O SILEX deve permitir a geração de relatórios
+  estatísticos referentes aos números de documentos do sistema, usuários
+  cadastrados, acesso/downloads de documentos etc.}
+
+  \requisito{RNF4}{D}{O SILEX deve possuir documentação completa, clara,
+  inteligível e organizada para instalação, configuração e uso do software.}
+
+  \requisito{RNF5}{D}{O SILEX deve possuir sistema de ajuda on-line sensível ao
+  contexto.}
+
+  \requisito{RNF6}{D}{O SILEX deve permitir a personalização de conteúdo de
+  ajuda on-line por adição de texto ou edição do texto existente.}
+
+  \requisito{RNF7}{D}{A interface do SILEX com o usuário final deve ser
+  adequada a adaptações e personalizações que permitam sua utilização por
+  usuários com necessidades especiais. Essas opções devem ser compatíveis com
+  software especializado que possa vir a ser acoplado (por exemplo, leitores de
+  tela para cegos), bem como seguir orientações específicas de acessibilidade
+  de interface.}
+\end{tabelarequisito}
+
+% ----------------------------------------------------------
+% Finaliza a parte no bookmark do PDF, para que se inicie o bookmark na raiz
+% ----------------------------------------------------------
+\bookmarksetup{startatroot}%
+% ---
+
+% % ----------------------------------------------------------
+% % Conclusão
+% % ----------------------------------------------------------
+% \chapter*[Considerações finais]{Considerações finais}
+% \addcontentsline{toc}{chapter}{Considerações finais}
+
+% ----------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ----------------------------------------------------------
+\postextual
+
+% ----------------------------------------------------------
+% Referências bibliográficas
+% ----------------------------------------------------------
+\bibliography{references}
+
+% ----------------------------------------------------------
+% Glossário
+% ----------------------------------------------------------
+
+% Adiciona todas as entradas do glossário
+\glsaddall
+
+% ---
+% Define nome e preâmbulo do glossário
+% ---
+\renewcommand{\glossaryname}{Glossário}
+\renewcommand{\glossarypreamble}{As definições contidas neste glossário se aplicam ao desenvolvimento de sistemas
+de informação que implementam os requisitos descritos neste documento.\\ \\}
+
+% ---
+% Omite o ponto no final 
+% ---
+\renewcommand*{\glspostdescription}{}
+% ---
+
+% ---
+% Traduções para o ambiente glossaries
+% ---
+\providetranslation{Glossary}{Glossário}
+\providetranslation{Acronyms}{Siglas}
+\providetranslation{Notation (glossaries)}{Notação}
+\providetranslation{Description (glossaries)}{Descrição}
+\providetranslation{Symbol (glossaries)}{Símbolo}
+\providetranslation{Page List (glossaries)}{Lista de Páginas}
+\providetranslation{Symbols (glossaries)}{Símbolos}
+\providetranslation{Numbers (glossaries)}{Números} 
+% ---
+
+% ---
+% Imprime o glossário
+% ---
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{\glossaryname}
+% \glossarystyle{index}
+ \glossarystyle{altlisthypergroup}
+% \glossarystyle{tree}
+\printglossaries
+\label{cap_glossario}
+% ---
+
+% ----------------------------------------------------------
+% Glossário hierarquico
+% ----------------------------------------------------------
+\chapter*[Glossário hierárquico]{Glossário hierárquico}
+\addcontentsline{toc}{chapter}{Glossário hierárquico}
+
+\newcommand{\glosshsep}{\reflectbox{\rotatebox[origin=c]{180}{$\Rsh$}}}
+\newcommand{\glosshsepclass}{$\Rightarrow$}
+
+{
+\setlength{\parindent}{0cm}
+
+\input{glossario/hierarquia}
+}
+
+% ----------------------------------------------------------
+% Apêndices
+% ----------------------------------------------------------
+
+% ---
+% Inicia os apêndices
+% ---
+\begin{apendicesenv}
+
+% Imprime uma página indicando o início dos apêndices
+\partapendices
+
+% ---
+% Tabelas de relacionamento
+% ---
+\begin{landscape}
+\input{apendice_tabelas_relacionamento}
+\end{landscape}
+% ---
+
+% ---
+% Diagramas
+% ---
+\input{apendice_diagramas}
+% ---
+
+\end{apendicesenv}
+% ---
+
+% ---
+% Mesa Diretora
+% ---
+
+\cleardoublepage
+\pagestyle{empty}
+\newpage \mbox{}
+\clearpage
+
+\phantomsection
+\pdfbookmark[0]{Mesa Diretora}{Mesa Diretora}
+% \addcontentsline{toc}{chapter}{Mesa Diretora}
+
+\vspace*{\fill}
+{
+\centering
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{0.5cm}  % tente também \onelineskip
+
+\ABNTEXchapterfont
+
+{
+\large
+\textbf{SENADO FEDERAL}\\
+Mesa\\
+Biênio 2013 -- 2014\\
+}
+
+\vspace*{\parskip}
+Senador Renan Calheiros\\
+\textbf{PRESIDENTE}\\
+
+% first column
+
+\begin{multicols}{2}
+
+Senador Jorge Viana\\
+\textbf{PRIMEIRO-VICE-PRESIDENTE}
+
+Senador Romero Jucá\\
+\textbf{SEGUNDO-VICE-PRESIDENTE}
+
+Senador Flexa Ribeiro\\
+\textbf{PRIMEIRO-SECRETÁRIO}
+
+%second column
+\columnbreak
+
+Senadora Ângela Portela\\
+\textbf{SEGUNDA-SECRETÁRIA}
+
+Senador Ciro Nogueira\\
+\textbf{TERCEIRO-SECRETÁRIO}
+
+Senador João Vicente Claudino\\
+\textbf{QUARTO-SECRETÁRIO}
+
+\end{multicols}
+
+Senador Magno Malta\\
+\textbf{PRIMEIRO-SUPLENTE}
+
+Senador Jayme Campos\\
+\textbf{SEGUNDO-SUPLENTE}
+
+Senador João Durval\\
+\textbf{TERCEIRO-SUPLENTE}
+
+Senador Casildo Maldaner\\
+\textbf{QUARTO-SUPLENTE}
+
+\rule{5cm}{\ABNTEXsignthickness}%
+
+Doris Peixoto\\
+\textbf{DIRETORA-GERAL}
+
+Claudia Lyra\\
+\textbf{SECRETÁRIA-GERAL DA MESA}
+
+}
+\vspace*{\fill}
+
+
+%---------------------------------------------------------------------
+% INDICE REMISSIVO
+%---------------------------------------------------------------------
+% \printindex
+
+\end{document}
