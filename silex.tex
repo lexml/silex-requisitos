@@ -1,3 +1,4 @@
+%% abtex2-modelo-relatorio-tecnico.tex, v1.9 laurocesar
 %% Copyright 2012-2013 by abnTeX2 group at http://abntex2.googlecode.com/ 
 %%
 
@@ -10,25 +11,25 @@
 % ------------------------------------------------------------------------
 
 % verso e anverso:
-\documentclass[a4paper,11pt,openright,twoside,english,brazil]{abntex2} 
+\documentclass[a4paper,11pt,openright,twoside,brazil]{abntex2} 
  
-% ---
-% PACOTES
-% ---
-
 % ---
 % Pacotes fundamentais 
 % ---
-\usepackage{cmap}        % Mapear caracteres especiais no PDF
 \usepackage{lmodern}      % Usa a fonte Latin Modern
 \usepackage[T1]{fontenc}    % Selecao de codigos de fonte.
 \usepackage[utf8]{inputenc}    % Codificacao do documento (conversão automática dos acentos)
 \usepackage{indentfirst}    % Indenta o primeiro parágrafo de cada seção.
 \usepackage{color}        % Controle das cores
+\usepackage{microtype}	% Microtype
+\usepackage{lastpage}		% Obtem a última página
+
+% ---
+% Símbolos e gráficos
+% ---
 \usepackage{graphicx}      % Inclusão de gráficos
 \usepackage{amssymb}      % Simbolos matematicos
-\usepackage{lastpage}		% Obtem a última página
-\usepackage{multicol}	% Múltiplas colunas
+% ---
 
 % ---
 % Pacotes glossaries
@@ -40,6 +41,7 @@
 % Tabelas 
 % ---
 \usepackage{multirow}            % Tabelas com colunas com multiplas linhas
+\usepackage{multicol}	% Múltiplas colunas
 \usepackage{longtable}            % Quebra de paginas em tabelas
 \usepackage{threeparttablex}          % notas no longtable
 % ---
@@ -62,9 +64,9 @@
 % --- 
 
 %% PARA IMPRESSÃO:
-% \usepackage{lscape}      		% Produce landscape pages in a (mainly) portrait
-% \graphicspath{{imagens/}}		% imagens preto e branco
-% \definecolor{blue}{RGB}{0,0,0}	% Cor preta nos links internos
+%  \usepackage{lscape}      		% Produce landscape pages in a (mainly) portrait
+%  \graphicspath{{imagens/pb/}}		% imagens preto e branco
+%  \definecolor{blue}{RGB}{0,0,0}	% Cor preta nos links internos
 
 % PARA VISUALIZAÇÃO EM TELA:
 \usepackage{pdflscape}      	% Produce landscape pages in a (mainly) portrait
@@ -101,7 +103,6 @@ Informação Jurídica}
 \autor{Grupo de Trabalho SILEX}
 \local{%Brasil}
 \includegraphics[scale=0.5]{imagens/Senado-Vertical.pdf}} 
-%\includegraphics[scale=0.4]{imagens/Variante-Horizontal1.pdf}}
 
 
 \data{2013}
@@ -113,10 +114,7 @@ Informação Jurídica}
 % O preambulo deve conter o tipo do trabalho, o objetivo, 
 % o nome da instituição e a área de concentração 
 \preambulo{Modelo de Requisitos para Sistemas Informatizados de Gestão da Informação
-Jurídica,
- elaborado no âmbito do Comitê Gestor de Informação do Portal LexML (CGLEXML).}
-
-
+Jurídica, elaborado no âmbito do Comitê Gestor de Informação do Portal LexML (CGLEXML).}
 % ---
 
 % ---
@@ -283,7 +281,7 @@ Brasília, Brasil : Senado Federal, \imprimirdata-
 Portal LexML, \imprimirdata.}
 
 \hspace{0.5cm}
-\parbox[t]{\textwidth}{Versão disponibilizada para consulta pública.}\\
+\parbox[t]{\textwidth}{Primeira versão após consulta pública.}\\
 
 \hspace{0.5cm}
 \parbox[t]{\textwidth}{ISBN: 978-85-7018-505-1}\\
@@ -365,7 +363,6 @@ Informação Jurídica
 \tableofcontents*
 \cleardoublepage
 % ---
-
 
 % ----------------------------------------------------------
 % ELEMENTOS TEXTUAIS
@@ -1038,8 +1035,9 @@ documentos. As tabelas são:
 Os \nameref{apendice_diagramas} (\autoref{apendice_diagramas}) apresentam de
 forma esquemática a mudança de estados de normas referentes aos aspectos de
 vigência (\autoref{fig_grafico_vigencia}), eficácia expressa
-(\autoref{fig_grafico_eficacia}), validade (\autoref{fig_grafico_validade}) e
-estágios de medida provisória (\autoref{fig_grafico_estagios-mp}).
+(\autoref{fig_grafico_eficacia}), validade (\autoref{fig_grafico_validade}),
+estágios de medida provisória (\autoref{fig_grafico_estagios-mp}) e publicação
+(\autoref{fig_grafico_publicacao}).
 
 % --
 \subsection{Âmbito e Utilização}
@@ -1504,7 +1502,7 @@ e segurança}{tab-requisitos-nao-funcionais}
 % ----------------------------------------------------------
 % Finaliza a parte no bookmark do PDF, para que se inicie o bookmark na raiz
 % ----------------------------------------------------------
-\bookmarksetup{startatroot}%
+\phantompart%
 % ---
 
 % % ----------------------------------------------------------
