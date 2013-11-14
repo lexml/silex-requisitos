@@ -53,8 +53,8 @@
 % ---
 % Pacote de comandos criados para este documento
 % ---
-%\usepackage{silex-defs}
-\usepackage{silex-defs-html}
+\usepackage{silex-defs}
+%\usepackage{silex-defs-html}
 % ---
 
 % --- 
@@ -745,8 +745,8 @@ considerando o controle da vigência, da eficácia expressa, das versões de
 textos, além da identificação da norma, dos dispositivos e dos relacionamentos
 que ocorrem no tempo}.
 
-Cabe destacar que o SILEX não se aplica à gestão arquivística, ou do processo
-legislativo, ou do processo judicial e ainda não se presta a registrar
+Cabe destacar que o SILEX não se aplica à gestão arquivística ou jurisprudencial, ou do processo
+legislativo e judicial e ainda não se presta a registrar
 comentários.
 
 % ---
@@ -1146,7 +1146,7 @@ Cabe ao Mantenedor da Informação Jurídica as seguintes tarefas:
 \label{sec-papel-revisor}
 % -
 
-Cabe ao revisor a verificação das atualizações realizados pelo mantenedor e a
+Cabe ao revisor a verificação das atualizações realizadas pelo mantenedor e a
 decisão de publicação ou correção das informações incluídas.
 
 % -
@@ -1188,13 +1188,17 @@ Os requisitos do SILEX são descritos pelas tabelas:
   restringir aos dados contidos nas publicações oficiais sendo proibida a
   inclusão de dados interpretativos.}
 
-  \requisito{RGS4}{O}{O SILEX permite a inclusão de alertas e notas
-  explicativas que registrem possíveis inconsistências dos dados descritivos
-  das unidades de informação ou nos seus relacionamentos.
+  \requisito{RGS4}{O}{O SILEX deve permitir a inclusão de alertas 
+   que registrem  possíveis inconsistências dos dados descritivos
+  das unidades de informação ou nos seus relacionamentos bem como
+  notas explicativas que auxiliem no entendimento do documento.
    \par
-   \emph{Por exemplo: pode-se incluir uma nota explicativa indicando que uma
-   norma foi publicada com a duplicação de um artigo; pode-se incluir um alerta
-   de que uma norma alterou as ocorrências de uma expressão em outra norma.} }
+   \emph{Por exemplo: pode-se incluir um alerta indicando que uma
+   norma foi publicada com a duplicação de um artigo; pode-se incluir 
+   um alerta
+   de que uma norma alterou as ocorrências de uma 
+   expressão em outra norma; pode-se incluir uma nota informando
+   a tradução de expressões técnicas ou em idiomas estrangeiros.} }
 
   \requisito{RGS5}{O}{O SILEX permite a gestão de informações de múltiplos
   ordenamentos jurídicos simultaneamente.}
@@ -1278,7 +1282,15 @@ Legislativo)}{tab-requisitos-documento}
   \emph{Situações possíveis: Anulada, Não Consta Revogação Expressa, Revogada,
   Suspensa, Sem Eficácia, Declarada Inconstitucional, Em vacatio legis,
   Prejudicada, Convertida, Rejeitada, Insubsistente.}}
-
+  
+  \requisito{RNJ10}{O}{O SILEX deve registrar, além do tipo formal, o tipo 
+  material da norma. 
+  \par
+  \emph{Exemplo: Atos Internacionais aprovados de acordo com a 
+  CF, Art. 5º, § 3º que possuem força de Emenda Constitucional.
+  }}
+  
+  
 \end{tabelarequisito}
 
 % --
@@ -1482,6 +1494,11 @@ e segurança}{tab-requisitos-nao-funcionais}
   software especializado que possa vir a ser acoplado (por exemplo, leitores de
   tela para cegos), bem como seguir orientações específicas de acessibilidade
   de interface.}
+  
+  \requisito{RNF8}{D}{O SILEX deve permitir acesso por máquina a sua base de dados 
+    para obtenção de informações estruturadas.}
+
+  
 \end{tabelarequisito}
 
 % ----------------------------------------------------------

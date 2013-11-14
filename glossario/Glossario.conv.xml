@@ -740,10 +740,11 @@
 			refids="exposicao-de-motivos justificativa-da-proposicao-legislativa" />
 	</entrada>
 	<entrada id="prorrogacao-de-medida-provisoria-por-ato-declaratorio">
-		<singular>Prorrogação de Medida Provisória por Ato Declaratório</singular>
-		<definicao>Ato pelo qual o Congresso Nacional ou Assembléia
-			Legislativa prorroga a vigência
-			de uma Medida Provisória. (RCN 1/2010 -- art 10).
+		<singular>Prorrogação de Medida Provisória</singular>
+		<definicao>Evento pelo qual ocorre a prorrogação do prazo de vigência
+		de medida provisória por período determinado. No caso do atual ordenamento
+		jurídico federal, um ato do Presidente do Congresso Nacional dá 
+		publicidade a esse evento.  (RCN 1/2010 -- art 10).
 		</definicao>
 		<especificoDe refid="prorrogacao-de-vigencia-por-prazo-determinado" />
 	</entrada>
@@ -882,9 +883,8 @@
 		<singular>Rejeição de Medida Provisória</singular>
 		<definicao>Ato pelo qual o Poder Legislativo, por meio de um ato
 			declaratório do Presidente
-			do Congresso Nacional, do Presidente do Senado Federal ou do Presidente
-			da Câmara dos
-			Deputados rejeita uma Medida Provisória caso não se verifique os pressupostos
+			da Casa Legislativa, rejeita uma Medida Provisória caso não se 
+			verifique os pressupostos
 			de
 			relevância e urgência constitucional. Antes da Resolução CN 1/2002,
 			utilizava-se o termo
@@ -1333,6 +1333,24 @@
 		<especificoDe refid="texto-compilado" />
 		<verTambem refids="texto-da-retificacao texto-original" />
 	</entrada>
+
+	<entrada id="tipo-formal-da-norma">
+		<singular>Tipo Formal da Norma</singular>
+		<definicao>Espécie da norma de acordo com a tipologia documental, tal como
+			consta na epígrafe.
+		</definicao>
+		<verTambem refids="tipo-material-da-norma" />
+	</entrada>
+	
+	<entrada id="tipo-material-da-norma">
+		<singular>Tipo Material da Norma</singular>
+		<definicao>Espécie da norma de acordo com a forma 
+			como é incorporada ao ordenamento jurídico. 
+			Na maioria das vezes, coincide com o \gls{tipo-formal-da-norma}. 
+		</definicao>
+		<verTambem refids="tipo-formal-da-norma" />
+	</entrada>
+	
 	<entrada id="tornar-sem-efeito--com-sentido-de-anulacao">
 		<singular>Tornar sem efeito (com sentido de Anulação)</singular>
 		<definicao />
